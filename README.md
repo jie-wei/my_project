@@ -24,7 +24,11 @@ my-project/
 │
 ├── docs/
 │   ├── decisions.md                  # why you made each research choice
-│   └── design_notes.md
+│   ├── design_notes.md
+│   └── quality_reports/              # session quality tracking
+│       ├── quality_score.py          # scoring script
+│       └── session_logs/             # per-session logs
+│           └── log_reminder.py       # hook: reminds to log sessions
 │
 ├── exploration/                     # EXPLORES → notebooks, messy is fine
 │   └── archive/                     # abandoned code and explorations
