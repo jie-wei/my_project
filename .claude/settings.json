@@ -1,6 +1,7 @@
 {
   "permissions": {
     "allow": [
+
       "// --- Basic utilities ---",
       "// ls: list files in a directory",
       "Bash(ls *)",
@@ -16,11 +17,15 @@
       "Bash(sort *)",
       "// for: shell loops (e.g. process multiple files)",
       "Bash(for *)",
+
       "// --- Code execution ---",
       "// Rscript: run R scripts from terminal",
       "Bash(Rscript *)",
       "// python3: run Python scripts from terminal",
       "Bash(python3 *)",
+
+
+
       "// --- Git: local version control ---",
       "// git status: show which files changed since last commit",
       "Bash(git status *)",
@@ -38,11 +43,15 @@
       "Bash(git pull *)",
       "// git checkout: switch branches or create new ones",
       "Bash(git checkout *)",
+
       "// --- GitHub CLI: needed by /commit skill for PR workflow ---",
       "// gh pr create: open a pull request on GitHub",
       "Bash(gh pr create *)",
       "// gh pr merge: merge the pull request into main",
       "Bash(gh pr merge *)",
+
+
+
       "// --- LaTeX compilation ---",
       "// xelatex: compile .tex to PDF (supports Unicode fonts)",
       "Bash(xelatex *)",
@@ -56,6 +65,7 @@
       "Bash(TEXINPUTS=*)",
       "// BIBINPUTS: tells bibtex where to find .bib files",
       "Bash(BIBINPUTS=*)",
+
       "// --- PDF tools ---",
       "// pdfinfo: read PDF metadata (page count, dimensions)",
       "Bash(pdfinfo *)",
@@ -64,9 +74,8 @@
       "// pdftk: split/merge PDFs (used to chunk large papers)",
       "Bash(pdftk *)",
       "// gs (ghostscript): PDF compression and conversion",
-      "Bash(gs *)",
-      "Bash(git init:*)",
-      "Bash(git commit:*)"
+      "Bash(gs *)"
+
     ]
   },
   "hooks": {
@@ -109,7 +118,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 \"$CLAUDE_PROJECT_DIR/docs/aux/src/log-reminder.py\"",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/docs/quality_reports/session_logs/log_reminder.py\"",
             "timeout": 10
           }
         ]
