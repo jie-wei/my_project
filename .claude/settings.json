@@ -84,7 +84,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/notify.sh",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/notify.py",
             "timeout": 5
           }
         ]
@@ -96,7 +96,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/protect-files.sh",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/protect-files.py",
             "timeout": 5
           }
         ]
@@ -107,7 +107,19 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/pre-compact.sh",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/pre-compact.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "compact|resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/post-compact-restore.py",
             "timeout": 5
           }
         ]
