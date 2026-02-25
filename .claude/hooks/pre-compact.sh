@@ -5,7 +5,7 @@ INPUT=$(cat)
 TRIGGER=$(echo "$INPUT" | jq -r '.trigger // "unknown"')
 
 # Find most recent session log
-LOG_DIR="$CLAUDE_PROJECT_DIR/docs/aux/quality_reports/session_logs"
+LOG_DIR="$CLAUDE_PROJECT_DIR/docs/quality_reports/session_logs"
 LATEST_LOG=$(ls -t "$LOG_DIR"/*.md 2>/dev/null | head -1)
 
 if [ -n "$LATEST_LOG" ]; then
@@ -13,7 +13,7 @@ if [ -n "$LATEST_LOG" ]; then
     echo ""
     echo "---"
     echo "**Context compaction ($TRIGGER) at $(date '+%H:%M')**"
-    echo "Check git log and aux/quality_reports/plans/ for current state."
+    echo "Check git log and docs/quality_reports/plans/ for current state."
   } >> "$LATEST_LOG"
 fi
 
