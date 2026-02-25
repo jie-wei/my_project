@@ -11,7 +11,7 @@
 5. **Present to user** — wait for approval
 6. **Exit plan mode** — only after approval
 7. **Save initial session log** — capture goal and key context while fresh
-8. **Implement the plan**
+8. **Implement via orchestrator** — see `orchestrator-protocol.md`
 
 ## Step 2: Requirements Specification (For Complex/Ambiguous Tasks)
 
