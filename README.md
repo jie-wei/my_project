@@ -81,6 +81,20 @@ my-project/
    python -c "import mypackage; print('OK')"
    ```
 
+## Start Claude Code
+
+Open the Claude Code panel in VS Code (or run `claude` in terminal), then paste the following — fill in your project details:
+
+> I am starting to work on **[PROJECT NAME]** in this repo. **[Describe your project in 2–3 sentences — what you're building, what data you're using, what methods you plan to apply.]**
+>
+> I want our collaboration to be structured and rigorous. The Claude Code workflow is already configured in this repo. Please read CLAUDE.md and the rules in .claude/rules/, understand the workflow, and then **update all configuration files to fit my project** — fill in placeholders in workflow-quick-ref.md (non-negotiables, preferences) and quality-gates.md (tolerance thresholds).
+>
+> After that, use the plan-first workflow for all non-trivial tasks. Once I approve a plan, switch to contractor mode — coordinate everything autonomously and only come back to me when there's ambiguity or a decision to make.
+>
+> Enter plan mode and start by adapting the workflow configuration for this project.
+
+**What this does:** Claude reads all configuration files, fills in your project-specific preferences, then enters contractor mode — planning before acting, verifying after, scoring against quality gates.
+
 ## Using This Template
 
 1. **Clone and rename:**

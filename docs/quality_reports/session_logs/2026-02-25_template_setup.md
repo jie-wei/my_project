@@ -132,3 +132,25 @@ Check git log and docs/quality_reports/plans/ for current state.
 ---
 **Context compaction (auto) at 15:58**
 Check git log and docs/quality_reports/plans/ for current state.
+
+---
+### Session 3: Workflow Enforcement Gaps
+
+**Goal:** Investigate why `docs/quality_reports/plans/` and `docs/quality_reports/merges/` are empty, compare with original, and fix.
+
+**Findings:**
+- Both plan saving and quality report generation are instruction-based in the original — no automation
+- The original has the same gaps: rules say "save plan" and "generate report at merge," but nothing enforces it
+- The `/commit` skill (both ours and original) doesn't include quality report generation
+- `plan-first-workflow.md` rule is always loaded and says "save to disk" as step 4, but Claude didn't follow it
+- Key insight: when skill gives explicit step-by-step instructions, Claude follows those steps; background rules get overlooked
+
+**Fix #1 — Quality reports (done):**
+- Added step 7 to `/commit` skill: generate quality report after merge using template, score files, save to `docs/quality_reports/merges/`, commit to main
+- Added `Write` to skill's allowed-tools
+
+**Fix #2 — Plan saving (in discussion):**
+- No `ExitPlanMode` hook event exists — can't hook into plan mode transitions
+- Claude Code auto-creates plans at `~/.claude/plans/` when in plan mode — plans always exist there
+- Our pre-compact hook searches `docs/quality_reports/plans/` (project folder), not `~/.claude/plans/`
+- Discussing: is the real problem that Claude doesn't enter plan mode, or that hooks look in the wrong place?
