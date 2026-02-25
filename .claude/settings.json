@@ -1,0 +1,119 @@
+{
+  "permissions": {
+    "allow": [
+      "// --- Basic utilities ---",
+      "// ls: list files in a directory",
+      "Bash(ls *)",
+      "// mkdir: create new folders",
+      "Bash(mkdir *)",
+      "// chmod: change file permissions (e.g. make scripts executable)",
+      "Bash(chmod *)",
+      "// open: open files in default Mac app (browser, Preview, etc.)",
+      "Bash(open *)",
+      "// wc: count lines/words in files",
+      "Bash(wc *)",
+      "// sort: sort lines of text",
+      "Bash(sort *)",
+      "// for: shell loops (e.g. process multiple files)",
+      "Bash(for *)",
+      "// --- Code execution ---",
+      "// Rscript: run R scripts from terminal",
+      "Bash(Rscript *)",
+      "// python3: run Python scripts from terminal",
+      "Bash(python3 *)",
+      "// --- Git: local version control ---",
+      "// git status: show which files changed since last commit",
+      "Bash(git status *)",
+      "// git diff: show what changed inside files (line by line)",
+      "Bash(git diff *)",
+      "// git log: show commit history",
+      "Bash(git log *)",
+      "// git add: stage files for the next commit",
+      "Bash(git add *)",
+      "// git commit: save a snapshot of staged files",
+      "Bash(git commit *)",
+      "// git push: upload commits to GitHub",
+      "Bash(git push *)",
+      "// git pull: download latest changes from GitHub",
+      "Bash(git pull *)",
+      "// git checkout: switch branches or create new ones",
+      "Bash(git checkout *)",
+      "// --- GitHub CLI: needed by /commit skill for PR workflow ---",
+      "// gh pr create: open a pull request on GitHub",
+      "Bash(gh pr create *)",
+      "// gh pr merge: merge the pull request into main",
+      "Bash(gh pr merge *)",
+      "// --- LaTeX compilation ---",
+      "// xelatex: compile .tex to PDF (supports Unicode fonts)",
+      "Bash(xelatex *)",
+      "// pdflatex: compile .tex to PDF (supports Unicode fonts)",
+      "Bash(pdflatex *)",
+      "// bibtex: process bibliography citations",
+      "Bash(bibtex *)",
+      "// latexmk: auto-runs xelatex+bibtex in correct order",
+      "Bash(latexmk *)",
+      "// TEXINPUTS: tells xelatex where to find preamble files",
+      "Bash(TEXINPUTS=*)",
+      "// BIBINPUTS: tells bibtex where to find .bib files",
+      "Bash(BIBINPUTS=*)",
+      "// --- PDF tools ---",
+      "// pdfinfo: read PDF metadata (page count, dimensions)",
+      "Bash(pdfinfo *)",
+      "// pdf2svg: convert PDF pages to SVG images",
+      "Bash(pdf2svg *)",
+      "// pdftk: split/merge PDFs (used to chunk large papers)",
+      "Bash(pdftk *)",
+      "// gs (ghostscript): PDF compression and conversion",
+      "Bash(gs *)",
+      "Bash(git init:*)",
+      "Bash(git commit:*)"
+    ]
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/notify.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/protect-files.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/pre-compact.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/docs/aux/src/log-reminder.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
