@@ -28,7 +28,6 @@ my-project/
 │   └── codebook.md                  # variable descriptions
 │
 ├── docs/
-│   ├── decisions.md                  # why you made each research choice
 │   ├── design_notes.md
 │   ├── core/                         # analysis notes for core pipeline
 │   │   └── archive/
@@ -37,7 +36,6 @@ my-project/
 │   └── quality_reports/              # session quality tracking
 │       ├── quality_score.py          # scoring script
 │       └── session_logs/             # per-session logs
-│           └── log_reminder.py       # hook: reminds to log sessions
 │
 ├── output/
 │   ├── core/                        # pipeline outputs
@@ -99,5 +97,3 @@ my-project/
    - All file paths live in `code/src/yourpackage/config.py`
 
 5. **Promote exploration → core** — when an idea is ready for the pipeline, swap `exploration` → `core` in the path, refactor, and add tests.
-
-6. **Record decisions** — log every research choice in `docs/decisions.md`.

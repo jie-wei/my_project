@@ -37,10 +37,6 @@
 - Only separate what's actually different. Shared logic stays in shared files.
 - Use CLI arguments to select versions — never duplicate scripts.
 
-## Decisions
-
-- Record every research decision in `docs/decisions.md`.
-
 ## Environment
 
 - Use `uv` for Python and dependency management.

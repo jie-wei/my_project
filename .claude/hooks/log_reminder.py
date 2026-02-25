@@ -9,11 +9,12 @@ and reminds it to update the session log.
 Adapted from: https://gist.github.com/michaelewens/9a1bc5a97f3f9bbb79453e5b682df462
 
 Usage (in .claude/settings.json):
-    "Stop": [{ "hooks": [{ "type": "command", "command": "python3 docs/quality_reports/session_logs/log_reminder.py" }] }]
+    "Stop": [{ "hooks": [{ "type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/log_reminder.py" }] }]
 """
 
 import json
 import sys
+import os
 import hashlib
 from pathlib import Path
 from datetime import datetime
@@ -34,7 +35,10 @@ def get_project_dir():
     if hook_input.get("stop_hook_active", False):
         sys.exit(0)
 
-    return hook_input.get("cwd", ""), hook_input
+    # Use cwd from hook input, fall back to CLAUDE_PROJECT_DIR env var
+    project_dir = hook_input.get("cwd", "") or os.environ.get("CLAUDE_PROJECT_DIR", "")
+
+    return project_dir, hook_input
 
 
 def get_state_path(project_dir: str) -> Path:
