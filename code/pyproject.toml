@@ -3,8 +3,49 @@ name = "mypackage"
 version = "0.0.0"
 requires-python = ">=3.12"
 dependencies = [
-    "pandas>=2.0",
-    "pyarrow>=14.0",
+    # --- Data ---
+    "pandas>=2.0",          # dataframes
+    "pyarrow>=14.0",        # fast columnar I/O (parquet)
+    "numpy>=1.26",          # arrays, linear algebra
+    "openpyxl>=3.1",        # read/write Excel .xlsx
+
+    # --- Statistics & econometrics ---
+    "scipy>=1.12",          # statistical tests, optimization, distributions
+    "statsmodels>=0.14",    # OLS, IV, time series, diagnostics
+    "linearmodels>=6.0",    # panel OLS, IV/2SLS/GMM, Fama-MacBeth
+    "pyfixest>=0.25",       # fast high-dimensional fixed effects (like R's fixest)
+    "scikit-learn>=1.4",    # ML baselines, cross-validation, preprocessing
+
+    # --- Visualization ---
+    "matplotlib>=3.8",      # base plotting
+    "seaborn>=0.13",        # statistical visualization
+
+    # --- Output & tables ---
+    "stargazer>=0.0.7",     # regression tables in LaTeX/HTML
+
+    # --- R interop ---
+    "rpy2>=3.5",            # call R from Python, pass data between R and pandas
+
+    # --- Utilities ---
+    "requests>=2.31",       # HTTP requests for downloading data
+    "tqdm>=4.66",           # progress bars
+    "jupyter>=1.0",         # notebooks for exploration
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",          # test runner
+    "ruff>=0.3",            # formatter + linter (replaces black, flake8, isort)
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "F",    # pyflakes: unused imports, undefined names, redefined variables
+    "I",    # isort: auto-sort imports into stdlib / third-party / local groups
 ]
 
 [tool.setuptools.packages.find]

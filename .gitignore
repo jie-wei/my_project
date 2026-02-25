@@ -1,5 +1,22 @@
+# Python
 __pycache__/
 *.pyc
-data/
+*.egg-info/
+
+# Environment
 .venv/
+uv.lock
+
+# Data — ignore contents but keep folder structure (via .gitkeep)
+data/raw/*
+data/intermediate/*
+data/processed/*
+!data/raw/.gitkeep
+!data/intermediate/.gitkeep
+!data/processed/.gitkeep
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
 .DS_Store

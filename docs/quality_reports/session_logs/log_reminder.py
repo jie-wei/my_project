@@ -112,12 +112,23 @@ def main():
     if state["counter"] >= THRESHOLD and not state["reminded"]:
         state["reminded"] = True
         save_state(state_path, state)
+
+        # Check if the latest log is from today
+        log_date = latest_log.stem.split("_")[0]
+        if log_date == today:
+            action = f"Append your recent progress to {latest_log.name}."
+        else:
+            action = (
+                f"Create a new session log at "
+                f"docs/quality_reports/session_logs/{today}_description.md "
+                f"and record your progress."
+            )
+
         output = {
             "decision": "block",
             "reason": (
                 f"SESSION LOG REMINDER: {state['counter']} responses without "
-                f"updating the session log. Append your recent progress to "
-                f"{latest_log.name}."
+                f"updating the session log. {action}"
             ),
         }
         json.dump(output, sys.stdout)
