@@ -3,7 +3,7 @@ name: commit
 description: Stage, commit, create PR, and merge to main. Use for the standard commit-PR-merge cycle.
 disable-model-invocation: true
 argument-hint: "[optional: commit message]"
-allowed-tools: ["Bash", "Read", "Glob"]
+allowed-tools: ["Bash", "Read", "Glob", "Write"]
 ---
 
 # Commit, PR, and Merge
@@ -69,7 +69,21 @@ git checkout main
 git pull
 ```
 
-7. **Report** the PR URL and what was merged.
+7. **Generate quality report** — use `docs/templates/quality-report.md` as the format:
+
+- Review all files that were changed in this branch (use `git diff --stat HEAD~1` or the PR diff)
+- Score each file against the rubrics in `.claude/rules/quality-gates.md` (start at 100, deduct)
+- Fill in the verification checklist
+- Save to `docs/quality_reports/merges/YYYY-MM-DD_[branch-name].md`
+- Stage and commit the report directly to main:
+
+```bash
+git add docs/quality_reports/merges/<report-file>.md
+git commit -m "add quality report for <branch-name>"
+git push
+```
+
+8. **Report** the PR URL, what was merged, and the quality scores.
 
 ## Important
 
