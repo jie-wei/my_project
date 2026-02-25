@@ -9,10 +9,15 @@ my-project/
 │   │   └── mypackage/               # importable package (named per project)
 │   │       ├── __init__.py
 │   │       ├── config.py            # All file paths, one place
-│   │       └── _experimental/       # exploration code, not yet in pipeline
+│   │       ├── core/                # production logic
+│   │       │   └── __init__.py
+│   │       └── exploration/         # exploration code, not yet in pipeline
 │   │           └── __init__.py
 │   │
 │   ├── scripts/                     # ORCHESTRATES → file I/O
+│   │   ├── core/                    # numbered pipeline scripts
+│   │   └── exploration/             # notebooks, ad-hoc analysis
+│   │       └── archive/             # abandoned explorations
 │   │
 │   └── tests/                       # VERIFIES → tests src/ logic
 │
@@ -30,12 +35,11 @@ my-project/
 │       └── session_logs/             # per-session logs
 │           └── log_reminder.py       # hook: reminds to log sessions
 │
-├── exploration/                     # EXPLORES → notebooks, messy is fine
-│   └── archive/                     # abandoned code and explorations
-│
 ├── output/
-│   ├── tables/                      # rebuilt by scripts
-│   └── figures/                     # rebuilt by scripts
+│   ├── core/                        # pipeline outputs
+│   │   ├── tables/                  # rebuilt by scripts
+│   │   └── figures/                 # rebuilt by scripts
+│   └── exploration/                 # exploration outputs
 │
 ├── paper/
 │   ├── main.tex
