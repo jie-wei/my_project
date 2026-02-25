@@ -90,3 +90,45 @@ Continue building out the project template: restructure folders, set up dependen
 ---
 **Context compaction (auto) at 12:41**
 Check git log and docs/quality_reports/plans/ for current state.
+
+
+---
+**Context compaction (auto) at 14:26**
+Check git log and docs/quality_reports/plans/ for current state.
+
+---
+### Session 2: Cluster B-rest Planning (in progress)
+
+**Goal:** Add orchestrator-protocol, quality-gates, verification-protocol to complete the plan→execute→verify→score loop. Adapted from pedrohcgs/claude-code-my-workflow.
+
+**Key decisions made so far:**
+1. Step 3 (REVIEW) says "by file type" not agent names — matches original's pattern, agents slot in later via Cluster C
+2. verify-reminder.py unchanged — hook nudges, verification-protocol is formal methodology
+3. Exploration scoring deferred to Cluster D — matches original's separation
+4. Adding workflow-quick-ref.md to `.claude/rules/` — splits behavioral guidance out of CLAUDE.md (original puts it at `.claude/` but rules/ auto-loads)
+5. Adding orchestrator-research.md — simplified 3-step loop, prepares for Cluster C agent split
+6. Adding latex-cleanup.py hook — PostToolUse on Bash, auto-deletes .aux/.log/.bbl etc. after compilation
+7. Tolerance thresholds are `<!-- Customize -->` templates — per-project economics calibration
+
+**Plan file:** `/Users/weijie/.claude/plans/lovely-skipping-widget.md`
+**Status:** IMPLEMENTED
+
+**Files created:**
+- `.claude/rules/orchestrator-protocol.md` — 6-step loop (implement→verify→review→fix→re-verify→score)
+- `.claude/rules/orchestrator-research.md` — simplified 3-step loop for scripts, scoped to `code/scripts/**/*.py`
+- `.claude/rules/quality-gates.md` — deduction rubrics for Python modules, scripts, LaTeX
+- `.claude/rules/verification-protocol.md` — verification procedures per file type
+- `.claude/rules/workflow-quick-ref.md` — contractor model, ask-vs-execute, non-negotiables
+- `.claude/hooks/latex-cleanup.py` — auto-deletes LaTeX auxiliary files after compilation
+
+**Files edited:**
+- `.claude/rules/plan-first-workflow.md` — step 8 links to orchestrator
+- `CLAUDE.md` — 5 new rules in Rules Reference, latex-cleanup in Hooks
+- `.claude/settings.json` — wired latex-cleanup.py
+
+**Verification:** All cross-references valid, settings.json valid JSON, hook syntax OK, 8 rules + 8 hooks total
+
+
+---
+**Context compaction (auto) at 15:58**
+Check git log and docs/quality_reports/plans/ for current state.

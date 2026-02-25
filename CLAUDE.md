@@ -61,6 +61,11 @@ paper/                       # Manuscript files
 - `.claude/rules/project-conventions.md` — code organization, data flow, parallel structure
 - `.claude/rules/plan-first-workflow.md` — planning protocol, requirements specs
 - `.claude/rules/session-logging.md` — when to update session logs
+- `.claude/rules/orchestrator-protocol.md` — post-plan execution loop
+- `.claude/rules/orchestrator-research.md` — simplified loop for scripts/data analysis
+- `.claude/rules/quality-gates.md` — scoring rubrics by file type
+- `.claude/rules/verification-protocol.md` — how to verify each file type
+- `.claude/rules/workflow-quick-ref.md` — contractor model, when to ask vs execute
 
 ## Hooks (Automatic)
 
@@ -69,3 +74,4 @@ paper/                       # Manuscript files
 - **log-reminder** — blocks if 15+ responses without session log update
 - **pre-compact / post-compact** — saves and restores plan state across compaction
 - **protect-files** — blocks edits to protected files (references.bib, settings.json)
+- **latex-cleanup** — auto-deletes auxiliary files after LaTeX compilation
