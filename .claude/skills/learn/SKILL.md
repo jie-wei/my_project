@@ -177,5 +177,5 @@ remain integer (or Int64) after merge.
 
 - **Trigger conditions are critical.** Vague descriptions like "handle data issues" won't match future situations. Be specific: exact error messages, symptoms, scenarios.
 - **Test before saving.** Only document solutions that actually work.
-- **Check conventions.** Is this skill GENERIC (helps all users) or SPECIFIC (personal workflow)? Generic skills go in `.claude/skills/`. Specific workflows go in `.claude/state/personal-memory.md`. See `conventions.md` → "Generic vs Specific".
+- **Check conventions.** Is this skill GENERIC (helps all users) or SPECIFIC (personal workflow)? Generic skills go in `.claude/skills/`. Specific workflows go in `.claude/state/personal-memory.md`. See `standalone-conventions.md` → "Generic vs Specific".
 - **Update MEMORY.md** with a `[LEARN:skills]` entry noting the new skill was created.

@@ -3,7 +3,7 @@
 Quality Scoring System
 
 Calculates objective quality scores (0-100) based on rubrics defined in
-.claude/rules/quality-gates.md. Enforces quality gates: 80 (commit),
+.claude/rules/standalone-quality.md. Enforces quality gates: 80 (commit),
 90 (PR), 95 (excellence).
 
 Supports: .py (modules + scripts), .tex (LaTeX manuscripts)
@@ -26,7 +26,7 @@ import json
 import ast
 
 # ==============================================================================
-# SCORING RUBRICS (from .claude/rules/quality-gates.md)
+# SCORING RUBRICS (from .claude/rules/standalone-quality.md)
 # ==============================================================================
 
 PYTHON_MODULE_RUBRIC = {
@@ -357,7 +357,7 @@ class IssueDetector:
 # ==============================================================================
 
 class QualityScorer:
-    """Calculate quality scores based on quality-gates.md rubrics."""
+    """Calculate quality scores based on standalone-quality.md rubrics."""
 
     def __init__(self, filepath: Path, verbose: bool = False):
         self.filepath = filepath
@@ -656,7 +656,7 @@ class QualityScorer:
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Calculate quality scores based on quality-gates.md rubrics',
+        description='Calculate quality scores based on standalone-quality.md rubrics',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:

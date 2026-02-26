@@ -14,7 +14,7 @@ Plan approved → orchestrator activates
   │
   ├─ Scripts (code/scripts/) → skip to Step 5
   │
-  Step 3: REVIEW — Review against quality rubric, by file type (see quality-gates.md)
+  Step 3: REVIEW — Review against quality rubric, by file type (see standalone-quality.md)
   │
   Step 4: FIX — Apply fixes (critical → major → minor)
   │         RE-VERIFY — Confirm fixes are clean
@@ -40,7 +40,7 @@ Agents are in `.claude/agents/`. Claude auto-delegates based on agent descriptio
 When multiple review agents apply, run them in parallel (they check different things).
 The domain-reviewer agent is a template — add it to this table after customizing it for your field.
 
-For exploration files, use 60/100 threshold per quality-gates.md.
+For exploration files, use 60/100 threshold per standalone-quality.md.
 
 ## Script Verification Checklist
 

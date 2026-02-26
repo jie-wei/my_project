@@ -90,13 +90,13 @@ my-project/
 
 4. **Customize** for your project:
    - `.claude/rules/workflow-start.md` — non-negotiables (seed convention, figure standards)
-   - `.claude/rules/quality-gates.md` — tolerance thresholds for your domain
+   - `.claude/rules/standalone-quality.md` — tolerance thresholds for your domain
 
 5. **Start Claude Code** — open the panel in VS Code (or run `claude` in terminal), then paste:
 
    > I am starting to work on **[PROJECT NAME]** in this repo. **[Describe your project in 2–3 sentences — what you're building, what data you're using, what methods you plan to apply.]**
    >
-   > I want our collaboration to be structured and rigorous. The Claude Code workflow is already configured in this repo. Please read CLAUDE.md and the rules in .claude/rules/, understand the workflow, and then **update all configuration files to fit my project** — fill in placeholders in workflow-start.md (non-negotiables, preferences) and quality-gates.md (tolerance thresholds).
+   > I want our collaboration to be structured and rigorous. The Claude Code workflow is already configured in this repo. Please read CLAUDE.md and the rules in .claude/rules/, understand the workflow, and then **update all configuration files to fit my project** — fill in placeholders in workflow-start.md (non-negotiables, preferences) and standalone-quality.md (tolerance thresholds).
    >
    > After that, use the plan-first workflow for all non-trivial tasks. Once I approve a plan, switch to contractor mode — coordinate everything autonomously and only come back to me when there's ambiguity or a decision to make.
    >
@@ -225,7 +225,7 @@ Exploration outputs go to `output/exploration/[name]/`. Raw data is sacred — n
 | 90 | PR | Ready for review |
 | 95 | Excellence | Aspirational |
 
-Scoring rubrics are defined per file type in `.claude/rules/quality-gates.md`.
+Scoring rubrics are defined per file type in `.claude/rules/standalone-quality.md`.
 
 ## Automation
 
@@ -236,7 +236,7 @@ Scoring rubrics are defined per file type in `.claude/rules/quality-gates.md`.
 - **Incremental**: 1-3 lines on decisions, problems, corrections
 - **End-of-session**: summary, scores, open questions
 
-The `log-reminder` hook auto-creates one session log per Claude Code session. Naming: `YYYY-MM-DD_HHMMSS_{hash}_description.md`.
+The `reminder-log` hook auto-creates one session log per Claude Code session. Naming: `YYYY-MM-DD_HHMMSS_{hash}_description.md`.
 
 ### Context Survival & Session Lifecycle
 
@@ -245,23 +245,23 @@ Hooks fire automatically throughout a session to maintain continuity:
 ```
 SESSION START
     │
-    ├─ log-reminder creates session log stub
-    ├─ post-compact restores state (if resuming after compression)
+    ├─ reminder-log creates session log stub
+    ├─ compact-post restores state (if resuming after compression)
     │
     ▼
 DURING WORK (hooks fire on every tool use)
     │
-    ├─ verify-reminder ─── after .py/.tex edit → "run/compile to verify"
-    ├─ protect-files ───── blocks edits to references.bib, settings.json
+    ├─ reminder-verify ─── after .py/.tex edit → "run/compile to verify"
+    ├─ files-protection ── blocks edits to references.bib, settings.json
     ├─ latex-cleanup ───── after LaTeX compilation → deletes .aux/.log/.bbl
-    ├─ log-reminder ────── blocks if 15+ responses without session log update
+    ├─ reminder-log ────── blocks if 15+ responses without session log update
     │
     ▼
 APPROACHING CONTEXT LIMIT
     │
-    ├─ pre-compact saves: session log path, active plan, open questions
+    ├─ compact-pre saves: session log path, active plan, open questions
     ├─ auto-compression happens
-    ├─ post-compact restores saved state
+    ├─ compact-post restores saved state
     └─ Resume: read plan + git log + state current task
 ```
 
@@ -269,24 +269,24 @@ APPROACHING CONTEXT LIMIT
 
 | Rule | Purpose |
 |------|---------|
-| `conventions.md` | Code organization, data flow, three-tier structure |
+| `standalone-conventions.md` | Code organization, data flow, three-tier structure |
 | `workflow-plan.md` | Planning protocol, requirements specs |
-| `session-logging.md` | When to update session logs |
+| `standalone-log-session.md` | When to update session logs |
 | `protocol-orchestrator.md` | Post-plan execution loop (full + simplified for scripts) |
-| `quality-gates.md` | Scoring rubrics by file type |
+| `standalone-quality.md` | Scoring rubrics by file type |
 | `protocol-verification.md` | How to verify each file type |
 | `workflow-start.md` | Contractor model, when to ask vs execute |
 | `workflow-exploration.md` | Exploration fast-track, promotion, archiving |
-| `pdf-processing.md` | Safe PDF reading workflow (chunked, size-checked) |
+| `standalone-pdf.md` | Safe PDF reading workflow (chunked, size-checked) |
 
 ### Hooks Reference
 
 | Hook | Trigger | Action |
 |------|---------|--------|
-| `verify-reminder.py` | PostToolUse (Write/Edit) | Reminds to run/compile .py/.tex |
+| `reminder-verify.py` | PostToolUse (Write/Edit) | Reminds to run/compile .py/.tex |
 | `latex-cleanup.py` | PostToolUse (Bash) | Deletes .aux/.log/.bbl after compilation |
-| `log-reminder.py` | Stop | Blocks if 15+ responses without log update |
-| `pre-compact.py` | PreCompact | Saves plan state before compression |
-| `post-compact-restore.py` | SessionStart (compact) | Restores state after compression |
-| `protect-files.py` | PreToolUse (Edit/Write) | Blocks edits to references.bib, settings.json |
-| `notify.py` | Notification | Desktop notifications |
+| `reminder-log.py` | Stop | Blocks if 15+ responses without log update |
+| `compact-pre.py` | PreCompact | Saves plan state before compression |
+| `compact-post.py` | SessionStart (compact) | Restores state after compression |
+| `files-protection.py` | PreToolUse (Edit/Write) | Blocks edits to references.bib, settings.json |
+| `reminder-notify.py` | Notification | Desktop notifications |

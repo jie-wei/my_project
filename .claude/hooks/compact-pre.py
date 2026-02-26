@@ -7,7 +7,7 @@ Fires before context compaction to capture the current state:
 - Current task description
 - Recent decisions from session log
 
-This state is read by post-compact-restore.py after compaction.
+This state is read by compact-post.py after compaction.
 
 Hook Event: PreCompact
 Returns: Exit code 2 (message visible in transcript)

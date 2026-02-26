@@ -96,7 +96,7 @@ def needs_verification(file_path: str) -> tuple[bool, str]:
 
 def was_recently_reminded(file_path: str) -> bool:
     """Check if we already reminded about this file recently (within 60s)."""
-    cache_file = get_session_dir() / "verify-reminder-cache.json"
+    cache_file = get_session_dir() / "reminder-verify-cache.json"
 
     try:
         if cache_file.exists():
