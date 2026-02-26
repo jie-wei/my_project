@@ -12,11 +12,12 @@ my-project/
 │   │   ├── __init__.py
 │   │   ├── config.py                # All file paths, one place
 │   │   ├── core/                    # Production logic
-│   │   └── exploration/             # Experimental logic
+│   │   ├── exploration/             # Experimental logic
+│   │   └── archive/                 # Retired experiments
 │   ├── scripts/
 │   │   ├── core/                    # Numbered pipeline scripts (01_clean.py, 02_merge.py, …)
-│   │   └── exploration/             # Notebooks, ad-hoc analysis
-│   │       └── archive/             # Abandoned explorations
+│   │   ├── exploration/             # Notebooks, ad-hoc analysis
+│   │   └── archive/                 # Retired scripts
 │   └── tests/                       # Tests for src/ logic
 │
 ├── data/
@@ -28,6 +29,7 @@ my-project/
 ├── docs/
 │   ├── core/                        # Analysis notes (promoted)
 │   ├── exploration/                 # Analysis notes (experimental)
+│   ├── archive/                     # Retired notes
 │   ├── preambles/                   # LaTeX preamble files
 │   ├── templates/                   # Reusable markdown templates
 │   │   ├── session-log.md
@@ -43,7 +45,8 @@ my-project/
 │
 ├── output/
 │   ├── core/                        # Pipeline outputs (tables, figures)
-│   └── exploration/                 # Experiment outputs
+│   ├── exploration/                 # Experiment outputs
+│   └── archive/                     # Retired outputs
 │
 ├── paper/
 │   ├── main.tex                     # Manuscript
@@ -58,44 +61,7 @@ my-project/
 └── .gitignore
 ```
 
-## Getting Started
-
-1. **Install [uv](https://docs.astral.sh/uv/)** (Python package manager):
-
-   ```bash
-   curl -LsSf https://astral.sh/uv/install.sh | sh
-   ```
-
-2. **Create a virtual environment** and install dependencies:
-
-   ```bash
-   cd code
-   uv venv --python 3.12
-   source .venv/bin/activate
-   uv pip install -e ".[dev]"
-   ```
-
-3. **Verify** the install:
-
-   ```bash
-   python -c "import mypackage; print('OK')"
-   ```
-
-## Start Claude Code
-
-Open the Claude Code panel in VS Code (or run `claude` in terminal), then paste the following — fill in your project details:
-
-> I am starting to work on **[PROJECT NAME]** in this repo. **[Describe your project in 2–3 sentences — what you're building, what data you're using, what methods you plan to apply.]**
->
-> I want our collaboration to be structured and rigorous. The Claude Code workflow is already configured in this repo. Please read CLAUDE.md and the rules in .claude/rules/, understand the workflow, and then **update all configuration files to fit my project** — fill in placeholders in workflow-quick-ref.md (non-negotiables, preferences) and quality-gates.md (tolerance thresholds).
->
-> After that, use the plan-first workflow for all non-trivial tasks. Once I approve a plan, switch to contractor mode — coordinate everything autonomously and only come back to me when there's ambiguity or a decision to make.
->
-> Enter plan mode and start by adapting the workflow configuration for this project.
-
-**What this does:** Claude reads all configuration files, fills in your project-specific preferences, then enters contractor mode — planning before acting, verifying after, scoring against quality gates.
-
-## Using This Template
+## Setup
 
 1. **Clone and rename:**
 
@@ -108,36 +74,73 @@ Open the Claude Code panel in VS Code (or run `claude` in terminal), then paste 
    - `code/pyproject.toml`: change `name = "mypackage"`
    - All imports: `from mypackage.config import ...` → `from yourpackage.config import ...`
 
-3. **Edit dependencies** in `code/pyproject.toml`, then re-run `uv pip install -e ".[dev]"`.
+3. **Install [uv](https://docs.astral.sh/uv/)** and dependencies:
 
-4. **Customize** `.claude/rules/workflow-quick-ref.md` — fill in your project's non-negotiables (seed convention, figure standards, tolerance thresholds).
+   ```bash
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   cd code
+   uv venv --python 3.12
+   source .venv/bin/activate
+   uv pip install -e ".[dev]"
+   python -c "import mypackage; print('OK')"
+   ```
 
-5. **Customize** `.claude/rules/quality-gates.md` — fill in tolerance thresholds for your domain.
+4. **Customize** for your project:
+   - `.claude/rules/workflow-quick-ref.md` — non-negotiables (seed convention, figure standards)
+   - `.claude/rules/quality-gates.md` — tolerance thresholds for your domain
+
+5. **Start Claude Code** — open the panel in VS Code (or run `claude` in terminal), then paste:
+
+   > I am starting to work on **[PROJECT NAME]** in this repo. **[Describe your project in 2–3 sentences — what you're building, what data you're using, what methods you plan to apply.]**
+   >
+   > I want our collaboration to be structured and rigorous. The Claude Code workflow is already configured in this repo. Please read CLAUDE.md and the rules in .claude/rules/, understand the workflow, and then **update all configuration files to fit my project** — fill in placeholders in workflow-quick-ref.md (non-negotiables, preferences) and quality-gates.md (tolerance thresholds).
+   >
+   > After that, use the plan-first workflow for all non-trivial tasks. Once I approve a plan, switch to contractor mode — coordinate everything autonomously and only come back to me when there's ambiguity or a decision to make.
+   >
+   > Enter plan mode and start by adapting the workflow configuration for this project.
+
+   **What this does:** Claude reads all configuration files, fills in your project-specific preferences, then enters contractor mode — planning before acting, verifying after, scoring against quality gates.
 
 ## Workflow
 
-The template enforces a **plan-first, verify-after** workflow:
+### Master Routing
+
+Every instruction is routed based on its nature:
 
 ```
 Your instruction
     │
-    ├── Trivial? → Just do it
+    ├─ Exploration? ────────────── EXPLORATION FAST-TRACK
+    │  (new idea to test)            60/100, no planning
+    │                                → see "Exploration Workflow"
     │
-    └── Non-trivial?
-        │
-        ▼
-    PLAN-FIRST WORKFLOW
+    ├─ Trivial production? ──────── JUST DO IT
+    │  (typo, one-line fix)          verify → score (80/100) → done
+    │
+    └─ Non-trivial production? ──── PLAN-FIRST WORKFLOW
+       (multi-file, unclear)         → see "Production Workflow"
+```
+
+### Production Workflow (Plan → Orchestrate → Verify)
+
+```
+NON-TRIVIAL INSTRUCTION
+    │
+    ▼
+PLAN-FIRST WORKFLOW
     1. Enter plan mode
-    2. Requirements spec (if ambiguous)
+    2. Requirements spec (if ambiguous — ask user)
     3. Draft plan → save to docs/quality_reports/plans/
-    4. Present to user → approval
-    5. Implement via orchestrator
-        │
-        ▼
-    ORCHESTRATOR (selected by file type)
+    4. Present to user → wait for approval
+    5. Update session log (goal, approach, context)
+    │
+    ▼
+ORCHESTRATOR (selected by file type)
     │
     ├── Scripts (code/scripts/) → Simplified loop
-    │   IMPLEMENT → VERIFY → SCORE
+    │   IMPLEMENT → VERIFY → SCORE (>= 80?)
+    │                                YES → done
+    │                                NO  → fix → re-verify
     │
     └── Everything else → Full loop
         IMPLEMENT → VERIFY → REVIEW → FIX → RE-VERIFY → SCORE
@@ -146,15 +149,53 @@ Your instruction
                                                       < 80  → loop (max 5)
 ```
 
-### Quality Gates
+Rules: `plan-first-workflow.md`, `orchestrator-protocol.md`, `orchestrator-research.md`
 
-| Score | Gate | Meaning |
-|-------|------|---------|
-| 80 | Commit | Good enough to save |
-| 90 | PR | Ready for review |
-| 95 | Excellence | Aspirational |
+### Exploration Workflow (Fast-Track → Decide)
 
-Scoring rubrics are defined per file type in `.claude/rules/quality-gates.md`.
+The project uses a **three-tier structure** across four layers: `core/` (production), `exploration/` (active experiments), and `archive/` (retired). Transitions are just swapping the tier name.
+
+```
+User: "Let's explore [idea]"
+    │
+    ▼
+┌─ RESEARCH VALUE CHECK
+│  Worth investigating?  NO → Stop.  YES ↓
+│
+├─ PICK A NAME (short, descriptive, snake_case)
+│  e.g., "iv_approach", "bootstrap_se", "did_event_study"
+│
+├─ CREATE NAMED SUBFOLDER across needed layers:
+│  code/src/mypackage/exploration/[name]/
+│  code/scripts/exploration/[name]/
+│  output/exploration/[name]/
+│  docs/exploration/[name]/
+│
+├─ CODE IMMEDIATELY (60/100 threshold, no plan mode)
+│  ✓ Must: code runs, results correct, goal in session log
+│  ✗ Skip: tests, type hints, docstrings, script numbering
+│
+├─ LOG PROGRESS (session log)
+│
+▼
+┌─ DECISION POINT (user decides, never Claude) ────┐
+│                                                   │
+├─ PROMOTE                 ├─ KEEP          ├─ ARCHIVE
+│  exploration/[name]/     │  Stay in       │  exploration/[name]/
+│    → core/[name]/        │  exploration/  │    → archive/[name]/
+│  Graduate checklist:     │                │  with brief note
+│  □ Quality >= 80         │                │
+│  □ Tests added & pass    │                │
+│  □ Follows conventions   │                │
+│  □ Documented            │                │
+└──────────────────────────┴────────────────┘
+```
+
+**Promotion re-enters the production workflow:** when the user decides to promote, the promoted code goes through the full plan-first → orchestrator pipeline at the 80/100 threshold.
+
+Rules: `exploration-fast-track.md`, `exploration-lifecycle.md`
+
+## Conventions
 
 ### Code Organization
 
@@ -167,17 +208,67 @@ Scoring rubrics are defined per file type in `.claude/rules/quality-gates.md`.
 
 **Litmus test:** Needs the file system? → `scripts/`. No? → `src/`.
 
-**Data flow:** `data/raw/` → scripts → `data/intermediate/` → scripts → `data/processed/` → scripts → `output/core/`
+### Data Flow
 
-### Exploration → Core Promotion
+`data/raw/` → scripts → `data/intermediate/` → scripts → `data/processed/` → scripts → `output/core/`
 
-Work experimentally in `exploration/` folders across all four layers. When ready, swap `exploration` → `core` in the path, refactor, and add tests.
+Exploration outputs go to `output/exploration/[name]/`. Raw data is sacred — never modify.
 
-## Claude Code Rules
+### Quality Gates
+
+| Score | Gate | Meaning |
+|-------|------|---------|
+| 60 | Exploration | Good enough to keep exploring |
+| 80 | Commit | Good enough to save (production) |
+| 90 | PR | Ready for review |
+| 95 | Excellence | Aspirational |
+
+Scoring rubrics are defined per file type in `.claude/rules/quality-gates.md`.
+
+## Automation
+
+### Session Logging
+
+**Session logging** runs throughout all workflow paths:
+- **Post-plan**: goal, approach, key context
+- **Incremental**: 1-3 lines on decisions, problems, corrections
+- **End-of-session**: summary, scores, open questions
+
+The `log_reminder` hook auto-creates one session log per Claude Code session. Naming: `YYYY-MM-DD_HHMMSS_{hash}_description.md`.
+
+### Context Survival & Session Lifecycle
+
+Hooks fire automatically throughout a session to maintain continuity:
+
+```
+SESSION START
+    │
+    ├─ log_reminder creates session log stub
+    ├─ post-compact restores state (if resuming after compression)
+    │
+    ▼
+DURING WORK (hooks fire on every tool use)
+    │
+    ├─ context-monitor ─── warns at 40% / 55% / 65% / 80% / 90% context
+    ├─ verify-reminder ─── after .py/.tex edit → "run/compile to verify"
+    ├─ protect-files ───── blocks edits to references.bib, settings.json
+    ├─ latex-cleanup ───── after LaTeX compilation → deletes .aux/.log/.bbl
+    ├─ log_reminder ────── blocks if 15+ responses without session log update
+    │
+    ▼
+APPROACHING CONTEXT LIMIT (context-monitor hits 80%+)
+    │
+    ├─ pre-compact saves: session log path, active plan, open questions
+    ├─ auto-compression happens
+    ├─ post-compact restores saved state
+    └─ Resume: read plan + git log + state current task
+```
+
+### Rules Reference
 
 | Rule | Purpose |
 |------|---------|
-| `project-conventions.md` | Code organization, data flow, parallel structure |
+| `project-conventions.md` | Code organization, data flow, three-tier structure |
 | `plan-first-workflow.md` | Planning protocol, requirements specs |
 | `session-logging.md` | When to update session logs |
 | `orchestrator-protocol.md` | Post-plan execution loop (6-step) |
@@ -185,8 +276,10 @@ Work experimentally in `exploration/` folders across all four layers. When ready
 | `quality-gates.md` | Scoring rubrics by file type |
 | `verification-protocol.md` | How to verify each file type |
 | `workflow-quick-ref.md` | Contractor model, when to ask vs execute |
+| `exploration-fast-track.md` | Lightweight exploration workflow, 60/100 threshold |
+| `exploration-lifecycle.md` | Promotion, archiving, graduation checklist |
 
-## Claude Code Hooks
+### Hooks Reference
 
 | Hook | Trigger | Action |
 |------|---------|--------|

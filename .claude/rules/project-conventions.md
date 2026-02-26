@@ -15,22 +15,23 @@
 - Data flow: `raw/ → scripts → intermediate/ → scripts → processed/ → scripts → output/core/`
 - Exploration outputs go in `output/exploration/`.
 
-## Parallel Structure (core / exploration)
+## Three-Tier Structure (core / exploration / archive)
 
-- The project uses parallel `core/` and `exploration/` folders across four layers:
-  - `code/src/mypackage/core/` and `code/src/mypackage/exploration/` — pure logic
-  - `code/scripts/core/` and `code/scripts/exploration/` — file I/O scripts and notebooks
-  - `output/core/` and `output/exploration/` — generated outputs
-  - `docs/core/` and `docs/exploration/` — analysis notes
-- Each `exploration/` folder has an `archive/` subfolder for abandoned work.
-- To promote code: swap `exploration` → `core` in the path, refactor, add tests.
+- The project uses three parallel tiers across four layers:
+  - `code/src/mypackage/{core, exploration, archive}/` — pure logic
+  - `code/scripts/{core, exploration, archive}/` — file I/O scripts and notebooks
+  - `output/{core, exploration, archive}/` — generated outputs
+  - `docs/{core, exploration, archive}/` — analysis notes
+- **Transitions** are just swapping the tier name in the path. User decides all tier transitions — Claude never promotes or archives on its own.
+- Each exploration gets a **named subfolder** (e.g., `exploration/iv_approach/`) across the layers it uses.
 
 ## Exploration
 
-- Notebooks go in `code/scripts/exploration/` — always import from `src/`, never copy-paste.
-- Reusable exploration code goes in `code/src/mypackage/exploration/`. Promote to `src/mypackage/core/` or delete.
-- Analysis notes go in `docs/exploration/`. Promote to `docs/core/` or archive.
-- No dead code in `src/`. Move abandoned code to `src/mypackage/exploration/` or `scripts/exploration/archive/`. If fully abandoned, delete and let git history hold it.
+- Notebooks go in `code/scripts/exploration/[name]/` — always import from `src/`, never copy-paste.
+- Reusable exploration code goes in `code/src/mypackage/exploration/[name]/`.
+- Analysis notes go in `docs/exploration/[name]/`.
+- No dead code in `src/`. Move abandoned code to `archive/` or delete and let git history hold it.
+- See `exploration-fast-track.md` for workflow and `exploration-lifecycle.md` for tier transitions.
 
 ## Versions and Variations
 

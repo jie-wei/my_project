@@ -89,12 +89,26 @@ def find_active_plan(project_dir: str) -> dict | None:
     }
 
 
-def find_recent_session_log(project_dir: str) -> dict | None:
-    """Find the most recent session log."""
+def find_recent_session_log(project_dir: str, session_id: str = "") -> dict | None:
+    """Find the session log for the current session.
+    Uses session_id hash for lookup; falls back to latest-by-mtime for old-format logs."""
     logs_dir = Path(project_dir) / "docs" / "quality_reports" / "session_logs"
     if not logs_dir.exists():
         return None
 
+    # Try session-aware lookup first
+    if session_id:
+        session_hash = hashlib.md5(session_id.encode()).hexdigest()[:6]
+        matches = list(logs_dir.glob(f"*_{session_hash}_*.md"))
+        if not matches:
+            matches = list(logs_dir.glob(f"*_{session_hash}.md"))
+        if matches:
+            return {
+                "log_path": str(matches[0]),
+                "log_name": matches[0].name
+            }
+
+    # Fallback: latest by mtime (backward compat)
     log_files = sorted(logs_dir.glob("*.md"), key=lambda f: f.stat().st_mtime, reverse=True)
     if not log_files:
         return None
@@ -169,7 +183,8 @@ def main() -> int:
     # Gather context
     pre_compact_state = read_pre_compact_state()
     plan_info = find_active_plan(project_dir)
-    session_log = find_recent_session_log(project_dir)
+    session_id = hook_input.get("session_id", "")
+    session_log = find_recent_session_log(project_dir, session_id)
 
     # If we have any context to restore, print it
     if pre_compact_state or plan_info or session_log:
