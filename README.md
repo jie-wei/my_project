@@ -7,7 +7,7 @@ A project template for economics research with Claude Code integration. Includes
 ## Project Structure
 
 ```
-my-project/
+my_project/
 ├── code/
 │   ├── pyproject.toml               # Dependencies + makes src/ installable
 │   ├── src/mypackage/               # Pure logic (no file I/O)
