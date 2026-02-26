@@ -65,6 +65,11 @@
       "Bash(pdftk *)",
       "// gs (ghostscript): PDF compression and conversion",
       "Bash(gs *)",
+      "// --- Web access (used by /lit-review skill) ---",
+      "// WebSearch: search the web for academic papers and information",
+      "WebSearch",
+      "// WebFetch: fetch content from URLs (working papers, abstracts)",
+      "WebFetch",
       "Bash(grep:*)",
       "Bash(echo:*)"
     ]
