@@ -1,5 +1,5 @@
 ---
-name: python-reviewer
+name: reviewer-python
 description: Python code reviewer for academic research. Checks code quality, reproducibility, convention compliance, and test coverage. Use after writing or modifying Python scripts or modules.
 tools: Read, Grep, Glob
 model: inherit
@@ -131,7 +131,7 @@ Save report to `docs/quality_reports/reviews/[script_name]_python_review.md`:
 ```markdown
 # Python Code Review: [filename]
 **Date:** [YYYY-MM-DD]
-**Reviewer:** python-reviewer agent
+**Reviewer:** reviewer-python agent
 **File type:** Module / Script / Exploration
 **Score:** [N]/100 (threshold: [80 or 60])
 

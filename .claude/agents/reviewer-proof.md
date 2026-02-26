@@ -1,5 +1,5 @@
 ---
-name: proofreader
+name: reviewer-proof
 description: Expert proofreading agent for academic manuscripts. Reviews for grammar, typos, overflow, and consistency. Use proactively after creating or modifying manuscript content.
 tools: Read, Grep, Glob
 model: inherit

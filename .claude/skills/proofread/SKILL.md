@@ -14,7 +14,7 @@ Run the proofreading protocol on manuscript files. This produces a report of all
 
 ## Protocol (3 Phases)
 
-This skill defines a 3-phase protocol. The proofreader agent (`.claude/agents/proofreader.md`) follows the same protocol when invoked by the orchestrator.
+This skill defines a 3-phase protocol. The reviewer-proof agent (`.claude/agents/reviewer-proof.md`) follows the same protocol when invoked by the orchestrator.
 
 ### Phase 1: Review & Propose (this skill handles)
 - Read all target files
