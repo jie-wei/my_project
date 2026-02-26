@@ -43,6 +43,7 @@ output/
   archive/                   # Retired outputs
 paper/                       # Manuscript files
 .claude/
+  agents/                    # Specialized subagents (verifier, reviewers)
   hooks/                     # Automation hooks
   rules/                     # Behavioral rules
   skills/                    # Custom skills
@@ -64,6 +65,7 @@ paper/                       # Manuscript files
 | `/validate-bib` | Cross-reference citations vs .bib |
 | `/proofread [file or 'all']` | Grammar, typos, consistency check (report only) |
 | `/review-paper [file]` | Referee-quality 6-dimension manuscript review |
+| `/learn [skill-name]` | Extract session discovery into reusable skill |
 
 ## Commands
 
@@ -84,18 +86,18 @@ paper/                       # Manuscript files
 - `.claude/rules/workflow-quick-ref.md` — contractor model, when to ask vs execute
 - `.claude/rules/exploration-fast-track.md` — lightweight exploration workflow, 60/100 threshold
 - `.claude/rules/exploration-lifecycle.md` — promotion, archiving, graduation checklist
+- `.claude/rules/meta-governance.md` — template vs project, generic vs specific, two-tier memory
 
 ## Agents (Orchestrator)
 
-Path-scoped rules that fill Steps 2 (VERIFY) and 3 (REVIEW) of the orchestrator loop.
+Specialized subagents in `.claude/agents/` that run verification and review during the orchestrator loop.
 
-| Rule | Scope | Step | What It Does |
-|------|-------|------|-------------|
-| `verify-python.md` | `code/**/*.py` | VERIFY | Import check, pytest, run script, convention check |
-| `review-python.md` | `code/**/*.py` | REVIEW | Quality scoring against Python rubrics |
-| `verify-latex.md` | `paper/**/*.tex` | VERIFY | Compile LaTeX, validate bibliography |
-| `proofread-manuscript.md` | `paper/**/*.tex` | REVIEW | Grammar, typos, consistency (report only) |
-| `review-domain.md` | `paper/**/*.tex` | REVIEW | 6-dimension content review with referee objections |
+| Agent | Tools | What It Does |
+|-------|-------|-------------|
+| `verifier` | Read, Grep, Glob, Bash | Run/compile code, check outputs, validate bibliography |
+| `python-reviewer` | Read, Grep, Glob | 10-category Python code review |
+| `proofreader` | Read, Grep, Glob | Grammar, typos, consistency (report only) |
+| `domain-reviewer` | Read, Grep, Glob | 5-lens substantive review (TEMPLATE — customize for your field) |
 
 ## Hooks (Automatic)
 

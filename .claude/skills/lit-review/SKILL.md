@@ -107,8 +107,9 @@ If the project has `paper/references.bib`, offer to append new BibTeX entries th
 
 ## Important
 
-- **Be honest about uncertainty.** If you cannot verify a citation, say so explicitly. Mark unverified citations with `[UNVERIFIED]`.
+- **All LLM-generated citations are `[UNVERIFIED]` by default.** Mark every citation you produce from memory as `[UNVERIFIED]` unless you confirmed it via WebSearch/WebFetch or found it in local project files. Only remove the tag when you have a verified source URL or the entry already exists in `paper/references.bib`.
 - **Do NOT fabricate citations.** If you are unsure about a paper's details (authors, year, journal, title), flag it for the user to verify. Getting a citation wrong is worse than omitting it.
+- **BibTeX fields from memory are unreliable.** Even when a paper is real, LLM-recalled volume, pages, and DOI are often wrong. Mark individual fields you cannot verify with `% UNVERIFIED` comments in the BibTeX entry.
 - **Prioritize recent work** (last 5-10 years) unless seminal papers are older.
 - **Note working papers vs published papers** — working papers may change before publication.
 - **Handle web tool failures gracefully.** If WebSearch or WebFetch are unavailable or fail, analyze only local files and note what could not be searched.

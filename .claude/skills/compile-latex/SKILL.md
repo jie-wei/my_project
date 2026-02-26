@@ -33,7 +33,7 @@ BIBINPUTS=.:$BIBINPUTS bibtex $ARGUMENTS && \
 TEXINPUTS=../docs/preambles:$TEXINPUTS xelatex -interaction=nonstopmode $ARGUMENTS.tex && \
 TEXINPUTS=../docs/preambles:$TEXINPUTS xelatex -interaction=nonstopmode $ARGUMENTS.tex && \
 echo "=== PARSE LOG ===" && \
-grep -c "Warning" $ARGUMENTS.log 2>/dev/null || echo "0" && \
+grep -cE "^(LaTeX|Package|Class) .*Warning" $ARGUMENTS.log 2>/dev/null || echo "0" && \
 grep -c "^! " $ARGUMENTS.log 2>/dev/null || echo "0" && \
 grep "Citation.*undefined" $ARGUMENTS.log 2>/dev/null || echo "none" && \
 grep -c "Overfull" $ARGUMENTS.log 2>/dev/null || echo "0" && \
@@ -45,7 +45,7 @@ pdfinfo $ARGUMENTS.pdf 2>/dev/null | grep Pages || echo "Pages: unknown"
 cd paper && \
 TEXINPUTS=../docs/preambles:$TEXINPUTS BIBINPUTS=.:$BIBINPUTS latexmk -xelatex -interaction=nonstopmode $ARGUMENTS.tex && \
 echo "=== PARSE LOG ===" && \
-grep -c "Warning" $ARGUMENTS.log 2>/dev/null || echo "0" && \
+grep -cE "^(LaTeX|Package|Class) .*Warning" $ARGUMENTS.log 2>/dev/null || echo "0" && \
 grep -c "^! " $ARGUMENTS.log 2>/dev/null || echo "0" && \
 grep "Citation.*undefined" $ARGUMENTS.log 2>/dev/null || echo "none" && \
 grep -c "Overfull" $ARGUMENTS.log 2>/dev/null || echo "0" && \
@@ -81,7 +81,7 @@ Parse from the compilation log:
 - PAGES: from `pdfinfo` output
 - UNDEFINED_CITATIONS: from `grep "Citation.*undefined"` in the .log
 - OVERFULL_HBOX: from `grep -c "Overfull"` in the .log
-- WARNINGS: count all "Warning" lines in the .log
+- WARNINGS: count lines matching `^(LaTeX|Package|Class) .*Warning` in the .log
 - ERRORS: count all "! " lines in the .log (LaTeX error marker)
 
 ---
