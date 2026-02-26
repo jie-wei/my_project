@@ -3,7 +3,7 @@ name: research-ideation
 description: Generate research questions, hypotheses, and strategies from a topic or dataset
 disable-model-invocation: true
 argument-hint: "[topic, phenomenon, or dataset description]"
-allowed-tools: ["Read", "Grep", "Glob", "Write"]
+allowed-tools: ["Read", "Grep", "Glob", "Write", "WebSearch", "WebFetch"]
 ---
 
 # Research Ideation

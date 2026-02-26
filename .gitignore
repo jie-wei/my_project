@@ -20,3 +20,7 @@ data/processed/*
 
 # OS
 .DS_Store
+
+# Claude Code local files (not shared across machines)
+.claude/settings.local.json
+.claude/state/
