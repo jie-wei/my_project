@@ -70,7 +70,7 @@ When approaching context limits, ensure:
 2. Active plan is saved to disk
 3. Open questions are documented in session log
 
-The pre-compact hook will remind you of this checklist.
+The compact-pre hook will remind you of this checklist.
 
 **After Compression:**
 First message should be: "Resuming after compression. Last task: [read most recent plan + git log]. Status: [next step]."

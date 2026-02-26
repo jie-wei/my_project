@@ -114,7 +114,7 @@ Determine the save path:
 
 - **CONVERSATIONAL SKILL.** Do NOT produce a report immediately. Ask questions one at a time.
 - **Do NOT use AskUserQuestion tool.** Ask questions directly in your text responses.
-- **Session logging.** This skill involves many exchanges. The log-reminder hook fires at 15 responses. Update the session log with the interview topic and key decisions between phases.
+- **Session logging.** This skill involves many exchanges. The reminder-log hook fires at 15 responses. Update the session log with the interview topic and key decisions between phases.
 - **Be curious, not prescriptive.** Your job is to draw out the researcher's thinking, not impose your own ideas.
 - **Probe weak spots gently.** If the research design sounds fragile, ask "What would a skeptic say about...?" rather than "This won't work because..."
 - **Build on answers.** Each question should follow from the previous response.

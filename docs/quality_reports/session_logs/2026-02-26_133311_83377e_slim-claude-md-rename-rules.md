@@ -48,3 +48,18 @@ Check git log and docs/quality_reports/plans/ for current state.
 ---
 **Context compaction (auto) at 14:36**
 Check git log and docs/quality_reports/plans/ for current state.
+
+
+---
+**Context compaction (auto) at 15:14**
+Check git log and docs/quality_reports/plans/ for current state.
+
+---
+**Resumed after compaction — continuing rename work**
+
+- Completed standalone-* rule renames (conventions→standalone-conventions, pdf-processing→standalone-pdf, quality-gates→standalone-quality, session-logging→standalone-log-session) + all cross-refs
+- Evaluated verify-reminder hook — worth keeping (safety net for non-orchestrator edits)
+- Renamed 3 reminder hooks: log-reminder→reminder-log, verify-reminder→reminder-verify, notify→reminder-notify + all cross-refs
+- Renamed 2 compact hooks: pre-compact→compact-pre, post-compact-restore→compact-post + all cross-refs
+- Naming scheme: `reminder-*` (nudge hooks), `compact-*` (compaction hooks), `protect-*` / `latex-*` (other)
+- Settings.json updated by user each time (protect-files blocks Claude)

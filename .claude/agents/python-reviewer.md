@@ -14,7 +14,7 @@ Produce a thorough, actionable code review report. You do NOT edit files — you
 ## Review Protocol
 
 1. **Read the target file(s)** end-to-end
-2. **Read `.claude/rules/quality-gates.md`** for scoring thresholds
+2. **Read `.claude/rules/standalone-quality.md`** for scoring thresholds
 3. **Classify the file:** module (`code/src/mypackage/core/`), script (`code/scripts/core/`), or exploration
 4. **Check every category below** systematically
 5. **Produce the report** in the format at the bottom
@@ -30,7 +30,7 @@ Produce a thorough, actionable code review report. You do NOT edit files — you
 - [ ] Clean imports at top of file
 - [ ] `__all__` defined if module exports specific names
 
-**Flag:** ANY file I/O in src/core/ — this is a Critical (-30) deduction per quality-gates.md.
+**Flag:** ANY file I/O in src/core/ — this is a Critical (-30) deduction per standalone-quality.md.
 
 ### 2. SCRIPT STRUCTURE (scripts/core/ only)
 - [ ] Numbered prefix (`01_clean.py`, `02_merge.py`, etc.)
@@ -92,7 +92,7 @@ Produce a thorough, actionable code review report. You do NOT edit files — you
 - [ ] No relative paths with `..` that break when cwd changes
 - [ ] `config.py` is the single source of truth for all paths
 
-**Flag:** ANY hardcoded absolute path (-20 per quality-gates.md).
+**Flag:** ANY hardcoded absolute path (-20 per standalone-quality.md).
 
 ### 9. ERROR HANDLING
 - [ ] Missing values handled explicitly (not silently dropped)
@@ -115,7 +115,7 @@ Produce a thorough, actionable code review report. You do NOT edit files — you
 
 ## Scoring
 
-Read `quality-gates.md` for the exact deduction table. Apply the correct rubric:
+Read `standalone-quality.md` for the exact deduction table. Apply the correct rubric:
 - **Module rubric** (80/100 threshold): file I/O in src/ (-30), hardcoded paths (-20), missing tests (-10), naming (-3), type hints (-2)
 - **Script rubric** (80/100 threshold): modifies raw/ (-30), hardcoded paths (-20), missing seed (-10), no prefix (-3)
 - **Exploration rubric** (60/100 threshold): syntax error (-100), modifies raw/ (-30), doesn't run (-15), missing seed (-10), hardcoded paths (-5)

@@ -15,7 +15,7 @@ and globbing for *_{session_hash}_*.md — no cross-hook state dependency.
 
 Usage (in .claude/settings.json):
     "Stop": [{ "hooks": [{ "type": "command",
-      "command": "python3 \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/log-reminder.py" }] }]
+      "command": "python3 \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/reminder-log.py" }] }]
 """
 
 import json
@@ -27,7 +27,7 @@ from pathlib import Path
 from datetime import datetime
 
 THRESHOLD = 15
-STATE_DIR = Path("/tmp/claude-log-reminder")
+STATE_DIR = Path("/tmp/claude-reminder-log")
 CLEANUP_AGE_SECONDS = 7 * 24 * 3600  # 7 days
 
 

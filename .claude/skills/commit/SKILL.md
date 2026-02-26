@@ -72,7 +72,7 @@ git pull
 7. **Generate quality report** — use `docs/templates/quality-report.md` as the format:
 
 - Review all files that were changed in this branch (use `git diff --stat HEAD~1` or the PR diff)
-- Score each file against the rubrics in `.claude/rules/quality-gates.md` (start at 100, deduct)
+- Score each file against the rubrics in `.claude/rules/standalone-quality.md` (start at 100, deduct)
 - Fill in the verification checklist
 - Save to `docs/quality_reports/merges/YYYY-MM-DD_[branch-name].md`
 - Stage and commit the report directly to main:
