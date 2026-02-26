@@ -87,6 +87,7 @@ paper/                       # Manuscript files
 - `.claude/rules/exploration-fast-track.md` — lightweight exploration workflow, 60/100 threshold
 - `.claude/rules/exploration-lifecycle.md` — promotion, archiving, graduation checklist
 - `.claude/rules/meta-governance.md` — template vs project, generic vs specific, two-tier memory
+- `.claude/rules/pdf-processing.md` — safe chunked PDF reading and splitting
 
 ## Agents (Orchestrator)
 
