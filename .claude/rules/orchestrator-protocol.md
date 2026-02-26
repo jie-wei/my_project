@@ -26,6 +26,20 @@ Plan approved → orchestrator activates
               After max rounds → present with remaining issues
 ```
 
+## File-Type Routing
+
+| File Pattern | Step 2 (VERIFY) | Step 3 (REVIEW) |
+|-------------|-----------------|-----------------|
+| `code/src/mypackage/core/*.py` | verify-python.md | review-python.md |
+| `code/scripts/core/*.py` | verify-python.md | review-python.md |
+| `code/**/exploration/**/*.py` | verify-python.md (60/100) | review-python.md (60/100) |
+| `paper/*.tex` | verify-latex.md | proofread-manuscript.md + review-domain.md |
+
+When multiple review agents apply (LaTeX), run them sequentially:
+proofread-manuscript.md first (surface issues), then review-domain.md (content depth).
+
+For exploration files, use 60/100 threshold per quality-gates.md.
+
 ## Limits
 
 - **Main loop:** max 5 review-fix rounds
