@@ -10,7 +10,7 @@
 4. **Save to disk** — write to `docs/quality_reports/plans/YYYY-MM-DD_short-description.md`
 5. **Present to user** — wait for approval
 6. **Exit plan mode** — only after approval
-7. **Save initial session log** — capture goal and key context while fresh
+7. **Update session log** — the `log_reminder` hook auto-creates a stub at session start; update it with goal, approach, and key context
 8. **Implement via orchestrator** — see `orchestrator-protocol.md`
 
 ## Step 2: Requirements Specification (For Complex/Ambiguous Tasks)
@@ -25,8 +25,11 @@
 - Simple single-file edit
 - User has already provided detailed requirements
 
+**IMPORTANT: Never use the AskUserQuestion tool to ask questions. Always ask questions in plain text within your response.**
+**IMPORTANT: Never use the ExitPlanMode tool to request approval. Always ask for approval in plain text within your response.**
+
 **Protocol:**
-1. Use AskUserQuestion to clarify ambiguities (max 3-5 questions)
+1. Ask the user in plain text to clarify ambiguities (max 3-5 questions)
 2. Create `docs/quality_reports/specs/YYYY-MM-DD_description.md` using `docs/templates/requirements-spec.md`
 3. Mark each requirement:
    - **MUST** (non-negotiable)

@@ -45,7 +45,19 @@ paths:
 | Major | Typo in equation | -5 |
 | Minor | Inconsistent notation across sections | -3 |
 
-*Exploration scoring deferred to Cluster D (exploration-fast-track.md).*
+## Exploration Python (`code/src/mypackage/exploration/**`, `code/scripts/exploration/**`)
+
+**Threshold: 60/100** (not 80). Exploration is intentionally low-friction.
+
+| Severity | Issue | Deduction |
+|----------|-------|-----------|
+| Critical | Syntax or import error | -100 |
+| Critical | Modifies data/raw/ | -30 |
+| Major | Code doesn't run | -15 |
+| Major | Results not reproducible (missing seed) | -10 |
+| Minor | Hardcoded absolute paths | -5 |
+
+**No penalty for:** missing tests, missing type hints, missing docstrings, unnumbered scripts, inconsistent style.
 
 ## Enforcement
 

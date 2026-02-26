@@ -123,18 +123,34 @@ def save_state(state: dict) -> None:
         print(f"Warning: Could not save pre-compact state: {e}", file=sys.stderr)
 
 
-def append_to_session_log(project_dir: str, trigger: str) -> None:
-    """Append compaction note to session log."""
+def find_session_log(logs_dir: Path, session_id: str) -> Path | None:
+    """Find the session log for the given session_id using its hash.
+    Falls back to latest-by-mtime for backward compatibility with old-format logs."""
+    if session_id:
+        session_hash = hashlib.md5(session_id.encode()).hexdigest()[:6]
+        matches = list(logs_dir.glob(f"*_{session_hash}_*.md"))
+        if not matches:
+            matches = list(logs_dir.glob(f"*_{session_hash}.md"))
+        if matches:
+            return matches[0]
+
+    # Fallback: latest by mtime (backward compat with old-format logs)
+    log_files = sorted(logs_dir.glob("*.md"), key=lambda f: f.stat().st_mtime, reverse=True)
+    return log_files[0] if log_files else None
+
+
+def append_to_session_log(project_dir: str, trigger: str, session_id: str = "") -> None:
+    """Append compaction note to the current session's log."""
     logs_dir = Path(project_dir) / "docs" / "quality_reports" / "session_logs"
     if not logs_dir.exists():
         return
 
-    log_files = sorted(logs_dir.glob("*.md"), key=lambda f: f.stat().st_mtime, reverse=True)
-    if not log_files:
+    log_file = find_session_log(logs_dir, session_id)
+    if not log_file:
         return
 
     try:
-        with open(log_files[0], "a") as f:
+        with open(log_file, "a") as f:
             f.write(f"\n\n---\n")
             f.write(f"**Context compaction ({trigger}) at {datetime.now().strftime('%H:%M')}**\n")
             f.write(f"Check git log and docs/quality_reports/plans/ for current state.\n")
@@ -198,7 +214,8 @@ def main() -> int:
     save_state(state)
 
     # Append note to session log
-    append_to_session_log(project_dir, trigger)
+    session_id = hook_input.get("session_id", "")
+    append_to_session_log(project_dir, trigger, session_id)
 
     # Print message
     print(format_compaction_message(plan_info, decisions))

@@ -11,10 +11,14 @@
 
 ```
 code/
-  src/mypackage/core/       # Pure logic (no I/O)
-  src/mypackage/exploration/ # Experimental logic
-  scripts/core/              # Numbered pipeline scripts (I/O)
-  scripts/exploration/       # Notebooks and experiments
+  src/mypackage/
+    core/                    # Pure logic (no I/O) — production
+    exploration/             # Experimental logic
+    archive/                 # Retired experiments
+  scripts/
+    core/                    # Numbered pipeline scripts (I/O)
+    exploration/             # Notebooks and experiments
+    archive/                 # Retired scripts
   tests/                     # Tests for src/ logic
 data/
   raw/                       # Sacred — never modify
@@ -23,6 +27,7 @@ data/
 docs/
   core/                      # Analysis notes (promoted)
   exploration/               # Analysis notes (experimental)
+  archive/                   # Retired notes
   quality_reports/
     plans/                   # Saved plans (survive compaction)
     session_logs/            # Session logs
@@ -32,6 +37,7 @@ docs/
 output/
   core/                      # Pipeline outputs
   exploration/               # Experiment outputs
+  archive/                   # Retired outputs
 paper/                       # Manuscript files
 .claude/
   hooks/                     # Automation hooks
@@ -66,6 +72,8 @@ paper/                       # Manuscript files
 - `.claude/rules/quality-gates.md` — scoring rubrics by file type
 - `.claude/rules/verification-protocol.md` — how to verify each file type
 - `.claude/rules/workflow-quick-ref.md` — contractor model, when to ask vs execute
+- `.claude/rules/exploration-fast-track.md` — lightweight exploration workflow, 60/100 threshold
+- `.claude/rules/exploration-lifecycle.md` — promotion, archiving, graduation checklist
 
 ## Hooks (Automatic)
 
