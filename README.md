@@ -2,6 +2,8 @@
 
 A project template for economics research with Claude Code integration. Includes a plan-first workflow, quality gates with scoring rubrics, automated verification, and session logging.
 
+**Built on [pedrohcgs/claude-code-my-workflow](https://github.com/pedrohcgs/claude-code-my-workflow)** — adapted from Pedro H.C. Sant'Anna's Claude Code workflow template for economics research.
+
 ## Project Structure
 
 ```
