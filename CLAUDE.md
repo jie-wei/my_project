@@ -59,6 +59,8 @@ paper/                       # Manuscript files
 |---------|--------------|
 | `/commit [msg]` | Stage, commit, PR, merge |
 | `/research-ideation [topic]` | Generate RQs, hypotheses, strategies |
+| `/devils-advocate [target]` | Challenge research design with 5-7 tough questions |
+| `/data-analysis [dataset or goal]` | End-to-end Python analysis: explore, model, publish |
 | `/interview-me [topic]` | Conversational interview → research spec |
 | `/lit-review [topic]` | Literature search, synthesis, BibTeX |
 | `/compile-latex [file]` | Multi-pass xelatex + bibtex compilation |
