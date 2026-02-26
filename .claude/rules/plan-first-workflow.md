@@ -10,7 +10,7 @@
 4. **Save to disk** — write to `docs/quality_reports/plans/YYYY-MM-DD_short-description.md`
 5. **Present to user** — wait for approval
 6. **Exit plan mode** — only after approval
-7. **Update session log** — the `log_reminder` hook auto-creates a stub at session start; update it with goal, approach, and key context
+7. **Update session log** — the `log-reminder` hook auto-creates a stub at session start; update it with goal, approach, and key context
 8. **Implement via orchestrator** — see `orchestrator-protocol.md`
 
 ## Step 2: Requirements Specification (For Complex/Ambiguous Tasks)

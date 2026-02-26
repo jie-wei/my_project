@@ -15,7 +15,7 @@ and globbing for *_{session_hash}_*.md — no cross-hook state dependency.
 
 Usage (in .claude/settings.json):
     "Stop": [{ "hooks": [{ "type": "command",
-      "command": "python3 \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/log_reminder.py" }] }]
+      "command": "python3 \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/log-reminder.py" }] }]
 """
 
 import json
