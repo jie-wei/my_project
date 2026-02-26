@@ -85,6 +85,18 @@ paper/                       # Manuscript files
 - `.claude/rules/exploration-fast-track.md` — lightweight exploration workflow, 60/100 threshold
 - `.claude/rules/exploration-lifecycle.md` — promotion, archiving, graduation checklist
 
+## Agents (Orchestrator)
+
+Path-scoped rules that fill Steps 2 (VERIFY) and 3 (REVIEW) of the orchestrator loop.
+
+| Rule | Scope | Step | What It Does |
+|------|-------|------|-------------|
+| `verify-python.md` | `code/**/*.py` | VERIFY | Import check, pytest, run script, convention check |
+| `review-python.md` | `code/**/*.py` | REVIEW | Quality scoring against Python rubrics |
+| `verify-latex.md` | `paper/**/*.tex` | VERIFY | Compile LaTeX, validate bibliography |
+| `proofread-manuscript.md` | `paper/**/*.tex` | REVIEW | Grammar, typos, consistency (report only) |
+| `review-domain.md` | `paper/**/*.tex` | REVIEW | 6-dimension content review with referee objections |
+
 ## Hooks (Automatic)
 
 - **context-monitor** — warns at 40/55/65/80/90% context usage
