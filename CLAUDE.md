@@ -8,6 +8,7 @@
 - **Session logging** — log after plan approval, incrementally during work, at session end
 
 **IMPORTANT: Never use the AskUserQuestion tool. Always ask questions in plain text within your response.**
+**IMPORTANT: Never use the ExitPlanMode tool to request approval. Always ask for approval in plain text within your response.**
 
 ## Folder Structure
 
@@ -56,6 +57,13 @@ paper/                       # Manuscript files
 | Command | What It Does |
 |---------|--------------|
 | `/commit [msg]` | Stage, commit, PR, merge |
+| `/research-ideation [topic]` | Generate RQs, hypotheses, strategies |
+| `/interview-me [topic]` | Conversational interview → research spec |
+| `/lit-review [topic]` | Literature search, synthesis, BibTeX |
+| `/compile-latex [file]` | Multi-pass xelatex + bibtex compilation |
+| `/validate-bib` | Cross-reference citations vs .bib |
+| `/proofread [file or 'all']` | Grammar, typos, consistency check (report only) |
+| `/review-paper [file]` | Referee-quality 6-dimension manuscript review |
 
 ## Commands
 
