@@ -16,7 +16,7 @@ Run an end-to-end data analysis in Python: load, explore, analyze, and produce p
 
 ## Constraints
 
-- **Follow project conventions** in `.claude/rules/project-conventions.md`
+- **Follow project conventions** in `.claude/rules/conventions.md`
 - **Pure logic in `src/`, I/O in `scripts/`.** Functions that transform data go in `code/src/mypackage/`. Scripts that read files, call those functions, and save results go in `code/scripts/`.
 - **All paths from `config.py`** -- import from `code/src/mypackage/config.py`, never hardcode.
 - **Never modify `data/raw/`** -- it is sacred.
@@ -29,7 +29,7 @@ Run an end-to-end data analysis in Python: load, explore, analyze, and produce p
 
 ### Phase 1: Setup and Data Loading
 
-1. Read `.claude/rules/project-conventions.md` and `.claude/rules/quality-gates.md` for project standards.
+1. Read `.claude/rules/conventions.md` and `.claude/rules/quality-gates.md` for project standards.
 2. Check `code/src/mypackage/config.py` for existing path definitions. Add new paths if needed.
 3. Create script with proper header (see Script Structure below).
 4. Load required packages at top.

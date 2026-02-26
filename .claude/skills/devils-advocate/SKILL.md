@@ -92,16 +92,6 @@ Check for hardcoded values, missing seeds, undocumented preprocessing, environme
 
 ---
 
-## Output Location
-
-Determine the save path:
-1. Check if recent context (open files, cwd, recent edits) is inside `exploration/[name]/`.
-2. If YES: save to `docs/exploration/[name]/devils_advocate_[sanitized_target].md`.
-3. If NO: save to `docs/core/devils_advocate_[sanitized_target].md`.
-4. Create the directory if it does not exist.
-
----
-
 ## Principles
 
 - **Be specific.** Reference exact lines, variables, equations, or steps -- not vague concerns.

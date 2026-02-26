@@ -71,7 +71,7 @@ Generated **only at merge time** -- not at every commit or PR.
 Use `docs/templates/quality-report.md` for format.
 Save to `docs/quality_reports/merges/YYYY-MM-DD_[branch-name].md`.
 
-## Tolerance Thresholds (Economics Research)
+## Tolerance Thresholds
 
 <!-- Customize for your domain -->
 

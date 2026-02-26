@@ -41,7 +41,7 @@ def get_hook_input() -> dict:
 
 def get_project_dir(hook_input: dict) -> str:
     """Get project directory from hook input or environment."""
-    return hook_input.get("cwd", "") or os.environ.get("CLAUDE_PROJECT_DIR", "")
+    return os.environ.get("CLAUDE_PROJECT_DIR", "") or hook_input.get("cwd", "")
 
 
 def get_session_hash(session_id: str) -> str:

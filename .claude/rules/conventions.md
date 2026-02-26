@@ -31,12 +31,18 @@
 - Reusable exploration code goes in `code/src/mypackage/exploration/[name]/`.
 - Analysis notes go in `docs/exploration/[name]/`.
 - No dead code in `src/`. Move abandoned code to `archive/` or delete and let git history hold it.
-- See `exploration-fast-track.md` for workflow and `exploration-lifecycle.md` for tier transitions.
+- See `workflow-exploration.md` for workflow and tier transitions.
 
 ## Versions and Variations
 
 - Only separate what's actually different. Shared logic stays in shared files.
 - Use CLI arguments to select versions — never duplicate scripts.
+
+## Generic vs Specific
+
+- **Generic** (commit to repo): workflow patterns, templates, rules, skills that help all users
+- **Specific** (keep local): machine paths, tool versions, personal preferences, API keys
+- Litmus test: would a researcher in a different field benefit from this? Yes → commit. No → `.claude/state/personal-memory.md` (gitignored).
 
 ## Environment
 

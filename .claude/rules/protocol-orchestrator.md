@@ -9,16 +9,17 @@ Plan approved → orchestrator activates
   │
   Step 1: IMPLEMENT — Execute plan steps
   │
-  Step 2: VERIFY — Run/compile, check outputs (see verification-protocol.md)
+  Step 2: VERIFY — Run/compile, check outputs (see protocol-verification.md)
   │         If verification fails → fix → re-verify
+  │
+  ├─ Scripts (code/scripts/) → skip to Step 5
   │
   Step 3: REVIEW — Review against quality rubric, by file type (see quality-gates.md)
   │
   Step 4: FIX — Apply fixes (critical → major → minor)
+  │         RE-VERIFY — Confirm fixes are clean
   │
-  Step 5: RE-VERIFY — Confirm fixes are clean
-  │
-  Step 6: SCORE — Apply quality-gates rubric
+  Step 5: SCORE — Apply quality-gates rubric
   │
   └── Score >= threshold?
         YES → Present summary to user
@@ -32,13 +33,25 @@ Agents are in `.claude/agents/`. Claude auto-delegates based on agent descriptio
 
 | File Pattern | Step 2 (VERIFY) | Step 3 (REVIEW) |
 |-------------|-----------------|-----------------|
-| `code/**/*.py` | verifier | python-reviewer |
-| `paper/*.tex` | verifier | proofreader + domain-reviewer |
+| `code/src/**/*.py` | verifier | python-reviewer |
+| `code/scripts/**/*.py` | verifier | *(skip — straight to score)* |
+| `paper/*.tex` | verifier | proofreader |
 
-When multiple review agents apply (LaTeX), run them sequentially:
-proofreader first (surface issues), then domain-reviewer (content depth).
+When multiple review agents apply, run them in parallel (they check different things).
+The domain-reviewer agent is a template — add it to this table after customizing it for your field.
 
 For exploration files, use 60/100 threshold per quality-gates.md.
+
+## Script Verification Checklist
+
+For `code/scripts/**/*.py` (the simplified path):
+
+- [ ] Script runs without errors
+- [ ] All imports at top
+- [ ] No hardcoded absolute paths (use config.py)
+- [ ] Seed set if stochastic
+- [ ] Output files created at expected paths
+- [ ] Tolerance checks pass (if applicable)
 
 ## Limits
 
