@@ -33,12 +33,12 @@ Agents are in `.claude/agents/`. Claude auto-delegates based on agent descriptio
 
 | File Pattern | Step 2 (VERIFY) | Step 3 (REVIEW) |
 |-------------|-----------------|-----------------|
-| `code/src/**/*.py` | verifier | python-reviewer |
+| `code/src/**/*.py` | verifier | reviewer-python |
 | `code/scripts/**/*.py` | verifier | *(skip — straight to score)* |
-| `paper/*.tex` | verifier | proofreader |
+| `paper/*.tex` | verifier | reviewer-proof |
 
 When multiple review agents apply, run them in parallel (they check different things).
-The domain-reviewer agent is a template — add it to this table after customizing it for your field.
+The domain-reviewer template is at `docs/templates/domain-reviewer.md` — customize it for your field, then copy to `.claude/agents/` and add it to this table.
 
 For exploration files, use 60/100 threshold per standalone-quality.md.
 

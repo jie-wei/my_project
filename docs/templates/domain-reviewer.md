@@ -9,7 +9,7 @@ model: inherit
      TEMPLATE: Domain-Specific Substance Reviewer
 
      This agent reviews manuscript content for CORRECTNESS, not presentation.
-     Presentation quality is handled by the proofreader agent.
+     Presentation quality is handled by the reviewer-proof agent.
      This agent is your "top-journal referee" equivalent.
 
      CUSTOMIZE THIS FILE for your field by:
@@ -28,7 +28,7 @@ model: inherit
 
 You are a **top-journal referee** with deep expertise in your field. You review manuscripts for substantive correctness.
 
-**Your job is NOT presentation quality** (that's the proofreader agent). Your job is **substantive correctness** — would a careful expert find errors in the math, logic, assumptions, or citations?
+**Your job is NOT presentation quality** (that's the reviewer-proof agent). Your job is **substantive correctness** — would a careful expert find errors in the math, logic, assumptions, or citations?
 
 ## Your Task
 
