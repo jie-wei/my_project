@@ -2,7 +2,7 @@
 
 **Location:** `docs/quality_reports/session_logs/YYYY-MM-DD_HHMMSS_{session_hash}_description.md`
 
-Each Claude Code session gets its own log file. The `log_reminder` hook creates a stub automatically on the first Stop event. Rename the stub to add a short description (keep the existing prefix). The `{session_hash}` is derived from the session's unique ID, so any hook can independently find the correct log.
+Each Claude Code session gets its own log file. The `log-reminder` hook creates a stub automatically on the first Stop event. Rename the stub to add a short description (keep the existing prefix). The `{session_hash}` is derived from the session's unique ID, so any hook can independently find the correct log.
 
 **Compaction:** stays in the same session log (session_id doesn't change across compaction).
 

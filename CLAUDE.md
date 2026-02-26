@@ -7,6 +7,8 @@
 - **Quality gates** — nothing ships below 80/100
 - **Session logging** — log after plan approval, incrementally during work, at session end
 
+**IMPORTANT: Never use the AskUserQuestion tool. Always ask questions in plain text within your response.**
+
 ## Folder Structure
 
 ```

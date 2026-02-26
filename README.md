@@ -7,7 +7,7 @@ A project template for economics research with Claude Code integration. Includes
 ## Project Structure
 
 ```
-my_project/
+my-project/
 ├── code/
 │   ├── pyproject.toml               # Dependencies + makes src/ installable
 │   ├── src/mypackage/               # Pure logic (no file I/O)
@@ -236,7 +236,7 @@ Scoring rubrics are defined per file type in `.claude/rules/quality-gates.md`.
 - **Incremental**: 1-3 lines on decisions, problems, corrections
 - **End-of-session**: summary, scores, open questions
 
-The `log_reminder` hook auto-creates one session log per Claude Code session. Naming: `YYYY-MM-DD_HHMMSS_{hash}_description.md`.
+The `log-reminder` hook auto-creates one session log per Claude Code session. Naming: `YYYY-MM-DD_HHMMSS_{hash}_description.md`.
 
 ### Context Survival & Session Lifecycle
 
@@ -245,7 +245,7 @@ Hooks fire automatically throughout a session to maintain continuity:
 ```
 SESSION START
     │
-    ├─ log_reminder creates session log stub
+    ├─ log-reminder creates session log stub
     ├─ post-compact restores state (if resuming after compression)
     │
     ▼
@@ -255,7 +255,7 @@ DURING WORK (hooks fire on every tool use)
     ├─ verify-reminder ─── after .py/.tex edit → "run/compile to verify"
     ├─ protect-files ───── blocks edits to references.bib, settings.json
     ├─ latex-cleanup ───── after LaTeX compilation → deletes .aux/.log/.bbl
-    ├─ log_reminder ────── blocks if 15+ responses without session log update
+    ├─ log-reminder ────── blocks if 15+ responses without session log update
     │
     ▼
 APPROACHING CONTEXT LIMIT (context-monitor hits 80%+)
@@ -288,7 +288,7 @@ APPROACHING CONTEXT LIMIT (context-monitor hits 80%+)
 | `context-monitor.py` | PostToolUse (Bash/Task) | Warns at 40/55/65/80/90% context |
 | `verify-reminder.py` | PostToolUse (Write/Edit) | Reminds to run/compile .py/.tex |
 | `latex-cleanup.py` | PostToolUse (Bash) | Deletes .aux/.log/.bbl after compilation |
-| `log_reminder.py` | Stop | Blocks if 15+ responses without log update |
+| `log-reminder.py` | Stop | Blocks if 15+ responses without log update |
 | `pre-compact.py` | PreCompact | Saves plan state before compression |
 | `post-compact-restore.py` | SessionStart (compact) | Restores state after compression |
 | `protect-files.py` | PreToolUse (Edit/Write) | Blocks edits to references.bib, settings.json |
