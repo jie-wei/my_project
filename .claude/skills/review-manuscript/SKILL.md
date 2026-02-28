@@ -1,7 +1,7 @@
 ---
 name: review-manuscript
 description: Referee-quality manuscript review across 6 dimensions with structured scoring
-disable-model-invocation: true
+disable-model-invocation: false
 argument-hint: "[paper filename in paper/ or path to .tex/.pdf]"
 allowed-tools: ["Read", "Grep", "Glob", "Write", "Task"]
 ---
