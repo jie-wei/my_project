@@ -1,5 +1,5 @@
 ---
-name: devils-advocate
+name: research-advocate
 description: Challenge research design, analysis, or manuscript with 5-7 tough questions. Checks assumptions, validity threats, and logical gaps.
 disable-model-invocation: true
 argument-hint: "[file path, analysis description, or research design]"

@@ -1,5 +1,5 @@
 ---
-name: research-ideation
+name: research-brainstorm
 description: Generate research questions, hypotheses, and strategies from a topic or dataset
 disable-model-invocation: true
 argument-hint: "[topic, phenomenon, or dataset description]"

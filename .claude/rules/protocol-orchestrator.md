@@ -29,15 +29,15 @@ Plan approved → orchestrator activates
 
 ## File-Type Routing
 
-Agents are in `.claude/agents/`. Claude auto-delegates based on agent descriptions.
+Skills are in `.claude/skills/`. Use them for review steps.
 
-| File Pattern | Step 2 (VERIFY) | Step 3 (REVIEW) |
-|-------------|-----------------|-----------------|
-| `code/src/**/*.py` | verifier | reviewer-python |
-| `code/scripts/**/*.py` | verifier | *(skip — straight to score)* |
-| `paper/*.tex` | verifier | reviewer-proof |
+| File Pattern             | Step 2 (VERIFY) | Step 3 (REVIEW)                            |
+| ------------------------ | --------------- | ------------------------------------------ |
+| `code/src/**/*.py`     | verifier        | `/review-python`                         |
+| `code/scripts/**/*.py` | verifier        | `/review-python`                         |
+| `paper/*.tex`          | verifier        | `/review-manuscript and /review-details` |
 
-When multiple review agents apply, run them in parallel (they check different things).
+When multiple review perspectives apply, run them in parallel (they check different things).
 The domain-reviewer template is at `docs/templates/domain-reviewer.md` — customize it for your field, then copy to `.claude/agents/` and add it to this table.
 
 For exploration files, use 60/100 threshold per standalone-quality.md.
@@ -62,6 +62,7 @@ For `code/scripts/**/*.py` (the simplified path):
 ## "Just Do It" Mode
 
 When user says "just do it" / "handle it":
+
 - Skip final approval pause
 - Auto-commit if score >= 80
 - Still run the full verify-review-fix loop

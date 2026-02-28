@@ -1,9 +1,9 @@
 ---
-name: proofread
+name: review-details
 description: Grammar, typos, and consistency check for manuscript files. Produces a report without editing source files.
-disable-model-invocation: true
+disable-model-invocation: false
 argument-hint: "[filename or 'all']"
-allowed-tools: ["Read", "Grep", "Glob", "Write", "Task"]
+allowed-tools: ["Read", "Grep", "Glob", "Write"]
 ---
 
 # Proofread Manuscript
@@ -12,24 +12,19 @@ Run the proofreading protocol on manuscript files. This produces a report of all
 
 ---
 
-## Protocol (3 Phases)
-
-This skill defines a 3-phase protocol. The reviewer-proof agent (`.claude/agents/reviewer-proof.md`) follows the same protocol when invoked by the orchestrator.
+## Protocol (2 Phases)
 
 ### Phase 1: Review & Propose (this skill handles)
+
 - Read all target files
 - Identify every issue across 5 categories
 - Produce a detailed report with structured findings
-- **NEVER edit source files in this phase**
+- **NEVER edit source files**
 
 ### Phase 2: User Approval (interactive)
+
 - Present the report to the user
 - User reviews and approves/rejects individual findings
-
-### Phase 3: Apply Fixes (separate invocation)
-- Only apply user-approved fixes
-- Use Edit tool with `replace_all: true` for issues with multiple instances
-- Re-verify after application
 
 ---
 
@@ -109,7 +104,7 @@ Determine the save path:
 
 ## Important
 
-- **NEVER edit source files.** Only produce the report. Fixes are applied separately after user review (Phase 3).
+- **NEVER edit source files.** Only produce the report.
 - **Handle empty stubs gracefully.** If `paper/main.tex` is empty (0 bytes), report "Manuscript is empty — nothing to proofread."
-- **Use Task tool for parallel review.** For multiple files, launch a Task agent per file to review in parallel.
 - **Be specific.** Every finding must include the exact current text and proposed fix with line number. Vague suggestions like "improve clarity" are not actionable.
+- **Don't over-flag style preferences.** Flag genuine errors (grammar, typos, broken references), not stylistic choices like Oxford comma usage, passive voice, or sentence length — unless they cause ambiguity.

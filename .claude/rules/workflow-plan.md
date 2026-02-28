@@ -10,7 +10,7 @@
 4. **Save to disk** — write to `docs/quality_reports/plans/YYYY-MM-DD_short-description.md`
 5. **Present to user** — ask for approval in plain text (never use ExitPlanMode)
 6. **Exit plan mode** — only after approval
-7. **Implement via orchestrator** — see `protocol-orchestrator.md`
+7. **Implement via orchestrator** — see `.claude/agents/orchestrator.md`
 
 ## Step 2: Requirements Specification (For Complex/Ambiguous Tasks)
 

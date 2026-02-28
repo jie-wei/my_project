@@ -11,7 +11,9 @@
 **IMPORTANT: Never use the AskUserQuestion tool. Always ask questions in plain text within your response.**
 **IMPORTANT: Never use the ExitPlanMode tool to request approval. Always ask for approval in plain text within your response.**
 
-## Master Routing [read: .claude/rules/workflow-start.md, standalone-conventions.md]
+**On every session start, read:** `.claude/rules/workflow-start.md`, `.claude/rules/standalone-conventions.md`
+
+## Master Routing
 
 ```
 Your instruction
@@ -23,6 +25,5 @@ Your instruction
     │  (typo, one-line fix)          read: .claude/rules/protocol-verification.md, standalone-quality.md
     │
     └─ Non-trivial production? ──── PLAN-FIRST WORKFLOW
-       (multi-file, unclear)         read: .claude/rules/workflow-plan.md, protocol-orchestrator.md
+       (multi-file, unclear)         read: .claude/rules/workflow-plan.md
 ```
-
