@@ -28,7 +28,7 @@
 **IMPORTANT: Never use the ExitPlanMode tool to request approval. Always ask for approval in plain text within your response.**
 
 **Protocol:**
-1. Ask the user in plain text to clarify ambiguities (max 3-5 questions)
+1. Conduct a **conversational interview** — ask questions one at a time in plain text, probe deeper based on answers, and build toward a structured specification. Do NOT dump all questions at once.
 2. Create `docs/quality_reports/specs/YYYY-MM-DD_description.md` using `docs/templates/requirements-spec.md`
 3. Mark each requirement:
    - **MUST** (non-negotiable)

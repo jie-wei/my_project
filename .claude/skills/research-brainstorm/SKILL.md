@@ -6,7 +6,7 @@ argument-hint: "[topic, phenomenon, or dataset description]"
 allowed-tools: ["Read", "Grep", "Glob", "Write", "WebSearch", "WebFetch"]
 ---
 
-# Research Ideation
+# Research Brainstorm
 
 Generate structured research questions, testable hypotheses, and empirical strategies from a topic, phenomenon, or dataset.
 
@@ -42,7 +42,7 @@ Generate structured research questions, testable hypotheses, and empirical strat
 ## Output Format
 
 ```markdown
-# Research Ideation: [Topic]
+# Research Brainstorm: [Topic]
 
 **Date:** [YYYY-MM-DD]
 **Input:** [Original input]
@@ -99,8 +99,8 @@ Generate structured research questions, testable hypotheses, and empirical strat
 
 Determine the save path:
 1. Check if recent context (open files, cwd, recent edits) is inside `exploration/[name]/`.
-2. If YES: save to `docs/exploration/[name]/research_ideation_[sanitized_topic].md`.
-3. If NO: save to `docs/core/research_ideation_[sanitized_topic].md`.
+2. If YES: save to `docs/exploration/[name]/research_brainstorm_[sanitized_topic].md`.
+3. If NO: save to `docs/core/research_brainstorm_[sanitized_topic].md`.
 4. Create the directory if it does not exist.
 
 ---
