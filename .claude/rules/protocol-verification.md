@@ -21,7 +21,7 @@ paths:
 4. If stochastic: verify seed is set
 
 ## For LaTeX Manuscripts (`paper/*.tex`):
-1. Compile: `cd paper && latexmk -xelatex main.tex` (or `xelatex main.tex` x2 + `bibtex main` + `xelatex main.tex`)
+1. Compile: `cd paper && latexmk -xelatex main.tex` (always use `latexmk` — never raw `xelatex`/`bibtex`)
 2. Verify PDF created: `ls -la paper/main.pdf`
 3. Check for overfull hbox warnings: grep compilation log
 4. Check for undefined citations: `grep "undefined" paper/main.log`
