@@ -44,6 +44,11 @@
 - **Specific** (keep local): machine paths, tool versions, personal preferences, API keys
 - Litmus test: would a researcher in a different field benefit from this? Yes → commit. No → `.claude/state/personal-memory.md` (gitignored).
 
+## LaTeX
+
+- Always compile with `latexmk -xelatex` — never raw `xelatex`/`pdflatex`/`bibtex`. `latexmk` handles multi-pass compilation automatically.
+- After `latexmk` finishes, delete auxiliary files (`.aux`, `.log`, `.bbl`, `.blg`, `.out`, `.toc`, `.fls`, `.fdb_latexmk`, `.synctex.gz`, etc.) from the build directory.
+
 ## Environment
 
 - Use `uv` for Python and dependency management.
