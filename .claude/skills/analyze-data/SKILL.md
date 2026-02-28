@@ -1,5 +1,5 @@
 ---
-name: data-analysis
+name: analyze-data
 description: End-to-end Python data analysis workflow from exploration through modeling to publication-ready tables and figures
 disable-model-invocation: true
 argument-hint: "[dataset path or description of analysis goal]"
@@ -21,7 +21,7 @@ Run an end-to-end data analysis in Python: load, explore, analyze, and produce p
 - **All paths from `config.py`** -- import from `code/src/mypackage/config.py`, never hardcode.
 - **Never modify `data/raw/`** -- it is sacred.
 - **Save all outputs** (figures, tables, processed data) to appropriate `output/` directories.
-- **Run reviewer-python** on generated code before presenting results.
+- **Run `/review-python`** on generated code before presenting results.
 
 ---
 
@@ -74,12 +74,8 @@ Based on the research question:
 1. Save processed data to `data/intermediate/` or `data/processed/` as appropriate.
 2. Save all figures and tables to `output/`.
 3. Create output directories as needed with `os.makedirs(..., exist_ok=True)`.
-4. Run the reviewer-python agent on generated code:
-
-```
-Delegate to the reviewer-python agent:
-"Review the script at code/scripts/[tier]/[script_name].py"
-```
+4. Run `/review-python` on generated code:
+   "Review the script at code/scripts/[tier]/[script_name].py"
 
 5. Address any Critical or High issues from the review.
 

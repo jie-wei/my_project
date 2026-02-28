@@ -1,5 +1,5 @@
 ---
-name: lit-review
+name: review-literature
 description: Structured literature search and synthesis with citation extraction and gap identification
 disable-model-invocation: true
 argument-hint: "[topic, paper title, or research question]"

@@ -55,10 +55,10 @@ my-project/
 │   └── references.bib               # Bibliography
 │
 ├── .claude/
-│   ├── agents/                      # Subagent prompts (reviewer, verifier, etc.)
+│   ├── agents/                      # Subagent prompts (orchestrator)
 │   ├── rules/                       # Behavioral rules (auto-loaded)
 │   ├── hooks/                       # Automation hooks
-│   └── skills/                      # Custom skills
+│   └── skills/                      # Workflow skills (review, research, analysis)
 │
 ├── CLAUDE.md                        # Claude Code entry point
 └── .gitignore
@@ -151,7 +151,7 @@ ORCHESTRATOR (selected by file type)
                                                       < 80  → loop (max 5)
 ```
 
-Rules: `workflow-plan.md`, `protocol-orchestrator.md`
+Rules: `workflow-plan.md`, `protocol-orchestrator.md`. Agent: `orchestrator.md`
 
 ### Exploration Workflow (Fast-Track → Decide)
 
@@ -269,15 +269,16 @@ APPROACHING CONTEXT LIMIT
 
 | Rule | Purpose |
 |------|---------|
-| `standalone-conventions.md` | Code organization, data flow, three-tier structure |
+| `workflow-start.md` | Routing, quality gates, non-negotiables |
 | `workflow-plan.md` | Planning protocol, requirements specs |
-| `standalone-log-session.md` | When to update session logs |
-| `protocol-orchestrator.md` | Post-plan execution loop (full + simplified for scripts) |
-| `standalone-quality.md` | Scoring rubrics by file type |
-| `protocol-verification.md` | How to verify each file type |
-| `workflow-start.md` | Contractor model, when to ask vs execute |
 | `workflow-exploration.md` | Exploration fast-track, promotion, archiving |
+| `protocol-orchestrator.md` | Post-plan execution loop, file-type routing to skills |
+| `protocol-verification.md` | How to verify each file type |
+| `standalone-conventions.md` | Code organization, data flow, three-tier structure |
+| `standalone-quality.md` | Scoring rubrics by file type |
+| `standalone-log-session.md` | When to update session logs |
 | `standalone-pdf.md` | Safe PDF reading workflow (chunked, size-checked) |
+| `orchestrator.md` (agent) | Orchestrator agent — executes the protocol-orchestrator loop |
 
 ### Hooks Reference
 

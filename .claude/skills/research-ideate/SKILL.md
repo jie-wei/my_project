@@ -1,5 +1,5 @@
 ---
-name: interview-me
+name: research-ideate
 description: Conversational interview to formalize a research idea into a structured specification
 disable-model-invocation: true
 argument-hint: "[brief topic or 'start fresh']"

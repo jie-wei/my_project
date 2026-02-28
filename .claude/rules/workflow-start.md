@@ -4,19 +4,22 @@
 
 ---
 
-## The Loop
+## Routing
 
 ```
 Your instruction
-    ↓
-[PLAN] (if multi-file or unclear) → Show plan → Your approval
-    ↓
-[EXECUTE] Implement, verify, done
-    ↓
-[REPORT] Summary + what's ready
-    ↓
-Repeat
+    │
+    ├─ Exploration? ──────────── read: workflow-exploration.md
+    │  (new idea to test)          Code immediately. 60/100 threshold.
+    │
+    ├─ Trivial production? ────── read: protocol-verification.md, standalone-quality.md
+    │  (typo, one-line fix)        Just do it. Verify. 80/100 threshold.
+    │
+    └─ Non-trivial production? ── read: workflow-plan.md, protocol-orchestrator.md
+       (multi-file, unclear)       Plan first → orchestrator executes.
 ```
+
+After any task completes, run the appropriate verification protocol and score against `standalone-quality.md`.
 
 ---
 
@@ -40,30 +43,23 @@ Repeat
 
 ## Quality Gates (No Exceptions)
 
-| Score | Action |
-|-------|--------|
-| >= 80 | Ready to commit |
-| < 80  | Fix blocking issues |
+| Context | Threshold | Action if below |
+|---------|-----------|-----------------|
+| Production (`core/`) | 80/100 | Fix blocking issues |
+| Exploration | 60/100 | Fix blocking issues |
 
 ---
 
-## Non-Negotiables (Customize These)
-
-<!-- Replace with YOUR project's locked-in preferences -->
+## Non-Negotiables
 
 - **Path convention:** All paths from `config.py`, never hardcoded
-- **Seed convention:** <!-- e.g., set seed once at top for stochastic code -->
-- **Figure standards:** <!-- e.g., white bg, 300 DPI, custom theme -->
-- **Color palette:** <!-- e.g., institutional colors -->
-- **Tolerance thresholds:** <!-- e.g., 1e-6 for point estimates -->
+- **Seed convention:** Set seed once at top for stochastic code
+- **Data:** `data/raw/` is sacred — never modify
+- **src/ vs scripts/:** Pure logic in `src/`, file I/O in `scripts/`
 
 ---
 
 ## Preferences
 
-<!-- Fill in as you discover your working style -->
-
-**Visual:** <!-- How you want figures/plots handled -->
-**Reporting:** <!-- Concise bullets? Detailed prose? Details on request? -->
 **Session logs:** Always (post-plan, incremental, end-of-session)
-**Replication:** <!-- How strict? Flag near-misses? -->
+**Reporting:** Concise summaries, details on request
