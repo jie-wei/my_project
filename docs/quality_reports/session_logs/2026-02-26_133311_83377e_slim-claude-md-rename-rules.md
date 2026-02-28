@@ -63,3 +63,8 @@ Check git log and docs/quality_reports/plans/ for current state.
 - Renamed 2 compact hooks: pre-compact→compact-pre, post-compact-restore→compact-post + all cross-refs
 - Naming scheme: `reminder-*` (nudge hooks), `compact-*` (compaction hooks), `protect-*` / `latex-*` (other)
 - Settings.json updated by user each time (protect-files blocks Claude)
+
+
+---
+**Context compaction (auto) at 16:05**
+Check git log and docs/quality_reports/plans/ for current state.
