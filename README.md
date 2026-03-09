@@ -43,12 +43,25 @@ my-project/
 │       ├── plans/                   # Saved plans (survive compaction)
 │       ├── session_logs/            # Per-session work logs
 │       ├── merges/                  # Quality reports at merge time
-│       └── specs/                   # Requirements specifications
+│       ├── specs/                   # Requirements specifications
+│       └── reviews/                 # Review reports (replaced on re-run)
+│           ├── core/
+│           ├── exploration/
+│           └── archive/
 │
 ├── output/
-│   ├── core/                        # Pipeline outputs (tables, figures)
-│   ├── exploration/                 # Experiment outputs
-│   └── archive/                     # Retired outputs
+│   ├── core/
+│   │   ├── tables/                  # .tex + .csv per variant
+│   │   └── figures/                 # .pdf + .png per variant
+│   ├── exploration/
+│   │   ├── tables/
+│   │   └── figures/
+│   └── archive/
+│       ├── tables/
+│       └── figures/
+│
+├── draft/
+│   └── {tier}/{variant-name}/       # Summary documents (.tex) + review reports
 │
 ├── paper/
 │   ├── main.tex                     # Manuscript
@@ -58,7 +71,15 @@ my-project/
 │   ├── agents/                      # Subagent prompts (orchestrator)
 │   ├── rules/                       # Behavioral rules (auto-loaded)
 │   ├── hooks/                       # Automation hooks
-│   └── skills/                      # Workflow skills (review, research, analysis)
+│   └── skills/                      # Workflow skills
+│       ├── write-code/              #   /write-code — implement Python code
+│       ├── write-summary/           #   /write-summary — write LaTeX summary from outputs
+│       ├── review-code/             #   /review-code — Python code review
+│       ├── review-summary/          #   /review-summary — fact-check summary against data
+│       ├── review-manuscript/       #   /review-manuscript — referee-quality paper review
+│       ├── review-details/          #   /review-details — grammar/typos check
+│       ├── analyze-data/            #   /analyze-data — data analysis
+│       └── commit/                  #   /commit — stage, commit, PR, merge
 │
 ├── CLAUDE.md                        # Claude Code entry point
 └── .gitignore
