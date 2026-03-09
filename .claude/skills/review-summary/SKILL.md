@@ -40,6 +40,7 @@ Understanding which script produces which output is essential for knowing what s
 - List scripts in `code/scripts/{tier}/{variant-name}/` (exploration/archive) or numbered scripts in `code/scripts/{tier}/` (core)
 - Read each script to identify: what data it loads, what it outputs, where it saves
 - Read relevant src modules in `code/src/mypackage/{tier}/{variant-name}/`
+- **Trace the full I/O chain**: for each script, verify that it reads from the correct input paths and writes to the correct output paths for this variant. A script reading from the wrong source or writing to the wrong directory means the summary will be checked against wrong data — catch this before proceeding.
 - Build a map: output file → script that produced it → input data it used
 
 ---

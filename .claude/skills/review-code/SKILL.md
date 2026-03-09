@@ -81,7 +81,7 @@ Applies to all files in `code/scripts/` — whether `core/` (numbered scripts), 
 
 **Flag:** Implementation doesn't match theory, wrong statistical method, unhandled edge cases.
 
-### 6. Data Handling
+### 6. Data Handling & I/O Tracing
 
 - `data/raw/` is NEVER modified
 - Data flows: raw/ -> scripts -> intermediate/ -> scripts -> processed/ -> scripts -> output/
@@ -89,7 +89,9 @@ Applies to all files in `code/scripts/` — whether `core/` (numbered scripts), 
 - Processed data written to `data/processed/{variant-name}/`
 - Output files written to `output/{tier}/tables/{variant-name}/` and `output/{tier}/figures/{variant-name}/`
 
-**Critical flag:** Any modification to data/raw/ (-30).
+**Trace the I/O chain for each script.** For every script in the variant, verify: what does it read, what does it write, and do those paths match the variant's expected data pipeline? A script that reads from the wrong input or writes to the wrong output directory is a silent correctness bug — the code runs fine but produces results in the wrong place or from the wrong data.
+
+**Critical flag:** Any modification to data/raw/ (-30). Script reads/writes to wrong variant paths (-10).
 
 ### 7. Test Coverage (modules only)
 
