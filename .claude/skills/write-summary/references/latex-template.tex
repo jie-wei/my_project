@@ -1,0 +1,214 @@
+% Summary Document Template
+% Fill in PLACEHOLDERs and uncomment templates as needed.
+% Writing order: Methodology -> Results -> Discussion -> Conclusion -> Appendices -> Introduction (last)
+
+\documentclass[12pt]{article}
+
+% --- Packages ---
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
+\usepackage{booktabs}
+\usepackage[authoryear]{natbib}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{setspace}
+
+% --- Page Layout ---
+\usepackage[margin=1in]{geometry}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8em}
+
+% --- Section Formatting ---
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\scshape\centering}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalfont\bfseries}{\thesubsection.}{0.5em}{}
+
+% --- Hyperlinks ---
+\hypersetup{
+  colorlinks   = true,
+  urlcolor     = blue,
+  linkcolor    = blue,
+  citecolor    = black,
+}
+
+% --- Captions ---
+\usepackage[margin=10pt,font=small,labelfont=bf,labelsep=period]{caption}
+
+% --- Output Directory (relative path from draft/{tier}/{variant-name}/ to output/{tier}/) ---
+% Compute: 3 levels up to project root, then into output/{tier}
+\newcommand{\outdir}{PLACEHOLDER}
+
+% --- Common Math Shortcuts (add as needed) ---
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\R}{\mathbb{R}}
+
+\begin{document}
+
+% --- Title Block ---
+\begin{center}
+{\Large \textbf{PLACEHOLDER: Document Title}}
+
+\medskip
+
+PLACEHOLDER: Authors
+
+\medskip
+
+{\small Internal Report \hspace{1em}|\hspace{1em} \today}
+\end{center}
+
+
+%-----------------------------------------------------%
+\section{Introduction}\label{sec:intro}
+%-----------------------------------------------------%
+
+% IMPORTANT: Write this section LAST, after all other sections are complete.
+% The introduction should:
+%   - Overview the approach and its key innovations
+%   - Preview the key findings (reference what was found in the results)
+%   - Frame findings in terms of the conjectures developed in the Discussion
+%   - Set up the narrative arc: make promises the body delivers on
+
+% PLACEHOLDER
+
+
+%-----------------------------------------------------%
+\section{Methodology}\label{sec:method}
+%-----------------------------------------------------%
+
+% Brief overview of data sources, key methodological choices, estimation strategy.
+% Include key equations from the src/ modules.
+% Point to Appendix A for the detailed pipeline walkthrough.
+
+% PLACEHOLDER
+
+% \subsection{Data.}\label{sec:method-data}
+% PLACEHOLDER
+
+% \subsection{Estimation.}\label{sec:method-estimation}
+% PLACEHOLDER
+
+
+%-----------------------------------------------------%
+\section{Results}\label{sec:results}
+%-----------------------------------------------------%
+
+% One subsection per logical group of outputs.
+% For each table/figure: include it, write a caption, write 1-3 paragraphs of interpretation.
+% Cross-reference related results with \ref{}.
+
+% PLACEHOLDER
+
+% --- Table template ---
+% Uncomment and replicate for each table in output/{tier}/tables/{variant-name}/
+%
+% \begin{table}[H]
+%   \centering
+%   \caption{PLACEHOLDER: descriptive caption}
+%   \label{tab:PLACEHOLDER}
+%   \input{\outdir/tables/{variant-name}/PLACEHOLDER}
+% \end{table}
+
+% --- Figure template ---
+% Uncomment and replicate for each figure in output/{tier}/figures/{variant-name}/
+%
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[width=0.9\textwidth]{\outdir/figures/{variant-name}/PLACEHOLDER.png}
+%   \caption{\textbf{PLACEHOLDER: bold title.} PLACEHOLDER: detailed description.}
+%   \label{fig:PLACEHOLDER}
+% \end{figure}
+
+% --- Subfigure template ---
+% Use when multiple related panels should be shown together
+%
+% \begin{figure}[H]
+%   \centering
+%   \begin{subfigure}{0.48\textwidth}
+%     \includegraphics[width=\textwidth]{\outdir/figures/{variant-name}/PLACEHOLDER.png}
+%     \caption{PLACEHOLDER}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.48\textwidth}
+%     \includegraphics[width=\textwidth]{\outdir/figures/{variant-name}/PLACEHOLDER.png}
+%     \caption{PLACEHOLDER}
+%   \end{subfigure}
+%   \caption{PLACEHOLDER: overall caption}
+%   \label{fig:PLACEHOLDER}
+% \end{figure}
+
+% --- Hand-coded summary table template ---
+% Use when synthesizing across multiple outputs (e.g., comparing coefficients across specs)
+%
+% \begin{table}[H]
+%   \centering
+%   \caption{PLACEHOLDER: summary title}
+%   \label{tab:PLACEHOLDER}
+%   \small
+%   \begin{tabular}{lcccc}
+%     \toprule
+%     \textbf{PLACEHOLDER} & \textbf{Col 1} & \textbf{Col 2} & \textbf{Col 3} \\
+%     \midrule
+%     Row 1 & val & val & val \\
+%     Row 2 & val & val & val \\
+%     \bottomrule
+%   \end{tabular}
+%   \medskip
+%   {\footnotesize PLACEHOLDER: table notes (significance levels, data sources, etc.)}
+% \end{table}
+
+
+%-----------------------------------------------------%
+\section{Discussion}\label{sec:discussion}
+%-----------------------------------------------------%
+
+% Synthesize cross-result connections.
+% Present conjectures: supporting evidence, complications, what further analysis could resolve each.
+% Distinguish well-supported explanations from speculative ones.
+% Central finding and implications. Limitations.
+
+% PLACEHOLDER
+
+
+%-----------------------------------------------------%
+\section{Conclusion}\label{sec:conclusion}
+%-----------------------------------------------------%
+
+% Main takeaways concisely.
+% Open questions and promising directions (from unresolved conjectures).
+
+% PLACEHOLDER
+
+
+%-----------------------------------------------------%
+\appendix
+%-----------------------------------------------------%
+
+\section{Detailed Methodology}\label{app:methodology}
+
+% Step-by-step pipeline walkthrough.
+% For each stage: what it does, key parameters, which script implements it.
+% Include equations where code implements mathematical procedures.
+
+% PLACEHOLDER
+
+% \subsection{Stage 1: PLACEHOLDER.}\label{app:stage1}
+% Implemented in \texttt{PLACEHOLDER.py}.
+% PLACEHOLDER
+
+
+\section{Additional Results}\label{app:additional}
+
+% Robustness checks, variant comparisons, additional figures.
+% Organize by diagnostic type (e.g., all density plots together).
+
+% PLACEHOLDER
+
+
+\end{document}
