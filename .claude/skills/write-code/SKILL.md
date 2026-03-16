@@ -65,6 +65,13 @@ Check which folders and config.py paths already exist. Create only what's missin
 - Folders across layers (src/, scripts/, output/, etc.)
 - Config.py constants for new variant-specific paths
 
+**Output path convention:** Figures and tables go in separate subdirectories under `output/{tier}/`, not flat in a variant folder:
+```
+output/{tier}/figures/{variant-name}/   # .pdf + .png
+output/{tier}/tables/{variant-name}/    # .tex + .csv
+```
+Register these in config.py as `FIGURES_{VARIANT_NAME}` and `TABLES_{VARIANT_NAME}`. Never save outputs directly into a flat `output/{tier}/{variant-name}/` folder.
+
 Read `references/code-patterns.md` for the config.py extension pattern and all code conventions.
 
 ---
@@ -83,8 +90,9 @@ Build on what you found in Step 1. Import existing functions first.
 - Import paths from config.py, functions from src/
 - Parameters as module-level constants (SEED, etc.)
 - `DIR.mkdir(parents=True, exist_ok=True)` before saving
-- Figures: save as `.pdf` + `.png`, `dpi=300, bbox_inches='tight'`
-- Tables: save as `.tex` (directly importable with `\input{}`) + `.csv` for quick viewing
+- Figures: save to `FIGURES_{VARIANT_NAME}` as `.pdf` + `.png`, `dpi=300, bbox_inches='tight'`
+- Tables: save to `TABLES_{VARIANT_NAME}` as `.tex` (directly importable with `\input{}`) + `.csv` for quick viewing
+- Never save outputs into a flat variant folder — always use the `figures/` and `tables/` subdirectories
 
 **If regressions are needed:** read `references/regression-rpy2.md` for the rpy2 + fixest pattern.
 
@@ -123,7 +131,7 @@ Before finishing, confirm:
 - [ ] Pure logic in src/, I/O in scripts/
 - [ ] Tests exist for new public src/ functions
 - [ ] Seed set for any stochastic operations
-- [ ] Output files created at expected paths
+- [ ] Output files saved to `output/{tier}/figures/{variant}/` and `output/{tier}/tables/{variant}/` (not flat)
 - [ ] Figures saved as .pdf + .png
 - [ ] Tables saved as .tex (LaTeX-importable) + .csv
 - [ ] data/raw/ not modified
