@@ -1,0 +1,77 @@
+\documentclass[ecta,nameyear,draft]{econsocart}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{natbib}
+\usepackage{graphicx}
+\graphicspath{{../output/core/figures/}}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage[noabbrev]{cleveref}
+\RequirePackage[colorlinks,citecolor=purple,linkcolor=purple,urlcolor=purple,pagebackref]{hyperref}
+\usepackage[useregional]{datetime2}
+
+\startlocaldefs
+
+\numberwithin{equation}{section}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{condition}[theorem]{Condition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{observation}[theorem]{Observation}
+
+%% Custom commands
+\newcommand{\versioninfo}{This Version: \DTMnow}
+
+\endlocaldefs
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Paper Title}
+\runtitle{Short Title}
+
+\begin{aug}
+\author[add1]{\fnms{First}~\snm{Author}\ead[label=e1]{author@university.edu}}
+\address[add1]{%
+\orgdiv{Department of Economics},
+\orgname{University}}
+\href{URL_TO_LATEST_VERSION}{Click Here for the Latest Version}
+\end{aug}
+
+\begin{abstract}
+Abstract text.
+\end{abstract}
+
+\begin{keyword}
+\kwd{Keyword 1}
+\kwd{Keyword 2}
+\end{keyword}
+
+\end{frontmatter}
+
+\section{Introduction}
+
+
+
+\newpage
+\bibliographystyle{ecta-fullname}
+\bibliography{references}
+
+\end{document}

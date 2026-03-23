@@ -1,0 +1,69 @@
+English Language Module for datetime2 Package
+
+Author: Nicola L. C. Talbot
+        www.dickimaw-books.com
+
+Licence: LPPL
+
+Required Packages: datetime2, tracklang
+
+This module provides the following styles:
+
+english (English - no region)
+en-GB (English - United Kingdom of Great Britain and Northern Ireland)
+en-US (English - United States of America)
+en-CA (English - Canada)
+en-AU (English - Commonwealth of Australia)
+en-NZ (English - New Zealand)
+en-GG (English - Bailiwick of Guernsey)
+en-JE (English - Bailiwick of Jersey)
+en-IM (English - Isle of Man)
+en-MT (English - Republic of Malta)
+en-IE (English - Republic of Ireland)
+
+Example usage:
+
+\documentclass{article}
+\usepackage[en-GB]{datetime2}
+\begin{document}
+\today
+\end{document}
+
+\documentclass[british]{article}
+\usepackage{babel}
+\usepackage[useregional]{datetime2}
+\begin{document}
+\today
+\end{document}
+
+\documentclass{article}
+\usepackage{polyglossia}
+\setmainlanguage[variant=uk]{english}
+\usepackage[en-GB]{datetime2}
+\begin{document}
+\today
+\end{document}
+
+INSTALLATION
+============
+
+latex datetime2-english.ins
+
+Move all *.ldf files to
+TEXMF/tex/latex/datetime2-contrib/datetime2-english/
+
+Documentation:
+
+pdflatex datetime2-english.dtx
+makeindex -s gind.ist datetime2-english.idx
+makeindex -s gglo.ist -o datetime2-english.gls datetime2-english.glo
+pdflatex datetime2-english.dtx
+pdflatex datetime2-english.dtx
+
+Move datetime2-english.pdf and README to
+TEXMF/doc/latex/datetime2-contrib/datetime2-english/
+
+This material is subject to the LaTeX Project Public License.
+See http://www.ctan.org/license/lppl1.3 for the details of that
+license.
+
