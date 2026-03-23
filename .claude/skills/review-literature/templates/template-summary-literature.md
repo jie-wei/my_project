@@ -39,19 +39,28 @@
 <!-- - **Relevance to our paper:**                                                  -->
 <!--   - [Updated — names our specific results, precise comparison]                -->
 
-## Thematic Organization
+## Assessment: What the Literature Says About Each of Our Claims
 
-### Theme 1: [Descriptive Name]
+Organize themes around our paper's claims, not around the existing literature's categories. Each theme asks: "who else said this, and what did they miss?"
 
-[Grouped discussion of papers that address this theme. Synthesize across papers — don't just list them sequentially. Discuss how they relate to each other and to our paper's specific results. Identify where our contribution fits within this theme.]
+### Claim: [Our first core claim in one sentence]
 
-### Theme 2: [Descriptive Name]
+[Which existing papers come closest? What does each do? What does it miss relative to our specific claim? End with a clear gap statement.]
 
-[Same structure. Themes should be driven by content, not a fixed template.]
+### Claim: [Our second core claim]
 
-### Theme N: [Descriptive Name]
+[Same structure.]
 
-[Add as many themes as the literature warrants.]
+### Claim: [Our Nth claim]
+
+[Add as many claims as the paper warrants.]
+
+### Summary
+
+| Our claim | Closest paper | What they miss |
+|-----------|--------------|----------------|
+| [Claim 1] | [Author (Year)] | [The specific gap] |
+| [Claim 2] | [Author (Year)] | [The specific gap] |
 
 ### Empirical Findings
 

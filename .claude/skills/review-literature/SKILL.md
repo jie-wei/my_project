@@ -103,12 +103,15 @@ Papers already in `paper/references.bib` can drop `[UNVERIFIED]`. Papers with a 
 
 ### Thematic Organization
 
-Group papers into themes relevant to the paper's contribution. Themes should be driven by the content, not by a fixed template. Common patterns:
-- Organize around the paper's main results and how existing work relates to each
-- Group by mechanism, method, or debate
-- Include a theme for empirical evidence if relevant
+Themes must be organized around **our paper's claims**, not around the existing literature's categories. Each theme corresponds to one of our paper's main claims or contributions. For each theme, the question is: "who else said this, and what did they miss?" This ensures the literature review serves the paper's argument rather than just cataloging related work.
 
-Within each theme, discuss how existing papers relate to each other *and* to our paper. The value is in the synthesis and positioning, not just the listing.
+**How to construct themes:**
+1. Identify the paper's 3-5 core claims (from the comparison target — our draft, analysis notes, or conversation context)
+2. For each claim, create a theme: "Claim: [our claim in one sentence]"
+3. Under each theme, assess which existing papers come closest, what each does, and what it misses relative to our specific claim
+4. End each theme with a clear statement of the gap our paper fills
+
+**Within each theme:** discuss how existing papers relate to each other *and* to our specific claim. The value is in the assessment — "who came closest and what's missing" — not in listing papers by topic. Include a theme for empirical evidence if relevant.
 
 ### Gaps and Opportunities, Suggested Next Steps, BibTeX Entries
 
