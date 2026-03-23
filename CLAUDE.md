@@ -13,17 +13,6 @@
 
 **On every session start, read:** `.claude/rules/workflow-start.md`, `.claude/rules/standalone-conventions.md`
 
-## Master Routing
+## LaTeX
 
-```
-Your instruction
-    │
-    ├─ Exploration? ────────────── EXPLORATION FAST-TRACK
-    │  (new idea to test)            read: .claude/rules/workflow-exploration.md
-    │
-    ├─ Trivial production? ──────── JUST DO IT
-    │  (typo, one-line fix)          read: .claude/rules/protocol-verification.md, standalone-quality.md
-    │
-    └─ Non-trivial production? ──── PLAN-FIRST WORKFLOW
-       (multi-file, unclear)         read: .claude/rules/workflow-plan.md
-```
+- **Always `cd paper/` before running `latexmk`.** The `.latexmkrc` in `paper/` only takes effect from that directory. Running from the project root dumps aux files in the wrong place and fails to find template classes.

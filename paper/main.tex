@@ -1,4 +1,8 @@
-\documentclass[ecta,nameyear,draft]{econsocart}
+\documentclass[ecta,nameyear,final]{econsocart}
+
+\RequirePackage[colorlinks,citecolor=purple,linkcolor=purple,urlcolor=purple,pagebackref]{hyperref}
+
+\startlocaldefs
 
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -9,15 +13,20 @@
 \graphicspath{{../output/core/figures/}}
 \usepackage{color}
 \usepackage{xcolor}
-\usepackage[noabbrev]{cleveref}
-\RequirePackage[colorlinks,citecolor=purple,linkcolor=purple,urlcolor=purple,pagebackref]{hyperref}
+\usepackage{fancyhdr}
 \usepackage[useregional]{datetime2}
+\usepackage[noabbrev]{cleveref}
 
-\startlocaldefs
+\allowdisplaybreaks[4]
 
-\numberwithin{equation}{section}
+\makeatletter
+\def\@journal{}
+\let\form@runauthors\relax
+\def\copyright@text{}
+\def\title@size#1{\Huge #1}
+\def\section@size{\normalsize\mdseries}
+\makeatother
 
-\theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
@@ -25,22 +34,29 @@
 \newtheorem{claim}[theorem]{Claim}
 \newtheorem{conjecture}[theorem]{Conjecture}
 
-\theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{assumption}[theorem]{Assumption}
 \newtheorem{example}[theorem]{Example}
 \newtheorem{condition}[theorem]{Condition}
 
-\theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{observation}[theorem]{Observation}
 
 %% Custom commands
 \newcommand{\versioninfo}{This Version: \DTMnow}
+\newcommand{\important}[1]{\vspace{1.2em}\noindent\textbf{\textcolor{purple}{#1}}\par\vspace{0.5em}\noindent}
 
 \endlocaldefs
 
+\hypersetup{colorlinks=true,linkcolor=purple,filecolor=purple,citecolor=purple,urlcolor=purple}
+
 \begin{document}
+
+\pagestyle{fancy}
+\pagenumbering{gobble}
+\fancyhead[L]{\thepage}
+\fancyhead[C]{Short Title}
+\fancyhead[R]{Author Name}
 
 \begin{frontmatter}
 
@@ -68,12 +84,14 @@ Abstract text.
 
 
 \newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
 \section{Introduction}
 
 
 
 \newpage
-\bibliographystyle{ecta-fullname}
+\bibliographystyle{ecta}
 \bibliography{references}
 
 \end{document}
