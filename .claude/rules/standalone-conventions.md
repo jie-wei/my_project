@@ -12,8 +12,14 @@
 
 - `data/raw/` is sacred — never modify raw data.
 - `data/intermediate/` and `data/processed/` are rebuilt by scripts.
-- Data flow: `raw/ → scripts → intermediate/ → scripts → processed/ → scripts → output/core/`
-- Exploration outputs go in `output/exploration/`.
+- Data flow:
+  ```
+  data/raw/ → scripts → data/intermediate/ → scripts → data/processed/ → scripts → output/{tier}/
+                                                                                        ↓
+                                                                          ┌──────────────┴──────────────┐
+                                                                          ↓                             ↓
+                                                                   write-summary → docs/{tier}/    paper/ (figures/tables)
+  ```
 
 ## Three-Tier Structure (core / exploration / archive)
 

@@ -233,9 +233,13 @@ Rules: `workflow-exploration.md`
 
 ### Data Flow
 
-`data/raw/` → scripts → `data/intermediate/` → scripts → `data/processed/` → scripts → `output/core/`
+`data/raw/` → scripts → `data/intermediate/` → scripts → `data/processed/` → scripts → `output/{tier}/`
 
-Exploration outputs go to `output/exploration/[name]/`. Raw data is sacred — never modify.
+`output/{tier}/` feeds two consumers:
+- `paper/` imports figures and tables directly (via `\graphicspath` and `\input{}`)
+- `/write-summary` reads results and produces summary docs in `docs/{tier}/`
+
+Raw data is sacred — never modify.
 
 ### Quality Gates
 
