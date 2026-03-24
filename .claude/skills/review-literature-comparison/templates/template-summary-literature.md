@@ -44,12 +44,13 @@ Include any important distinctions the framework relies on (e.g., exogenous vs. 
 
 **Key papers:**
 
-- **Author (Year)** — [Summary link if available]
-  - Main contribution: [what the paper does]
-  - Key finding: [specific result, with theorem/proposition number if applicable]
-  - Connection to our thesis: [how it relates]
+- **Author (Year, Journal)** — [Summary link if available]
+  - **Model:** [setting — e.g., "repeated Bertrand duopoly with differentiated products"]
+  - **Main contribution:** [what the paper does]
+  - **Key finding:** [specific result, with theorem/proposition number if applicable]
+  - **Connection to thesis:** [how it relates]
 
-- **Author (Year)** — [Summary link if available]
+- **Author (Year, Journal)** — [Summary link if available]
   - Main contribution: [what the paper does]
   - Key finding: [specific result]
   - Connection to our thesis: [how it relates]
@@ -94,8 +95,8 @@ Include any important distinctions the framework relies on (e.g., exogenous vs. 
 
 [Papers providing methodology the paper draws on — not direct predecessors but essential building blocks. 2-3 lines each.]
 
-- **Author (Year)** — [Summary link if available] — [What it provides and why we need it]
-- **Author (Year)** — [Summary link if available] — [What it provides and why we need it]
+- **Author (Year, Journal)** — [Summary link if available] — [What it provides and why we need it]
+- **Author (Year, Journal)** — [Summary link if available] — [What it provides and why we need it]
 
 ---
 
