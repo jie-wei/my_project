@@ -38,17 +38,15 @@ Parse `$ARGUMENTS`:
    - Use `WebSearch` to find recent publications
    - Use `WebFetch` to access working paper repositories and abstracts
 
-4. **Organize findings** into these categories:
-   - **Theoretical contributions** — models, frameworks, mechanisms
-   - **Empirical findings** — key results, effect sizes, data sources
-   - **Methodological innovations** — new techniques, research designs, analytical tools
-   - **Open debates** — unresolved disagreements in the literature
+4. **Organize findings** using the template structure (see Output Format). The key organizational principle: group papers by their *role in the paper's argument*, not by topic or chronology. Distinguish between:
+   - **Literature through the lens** — existing work reread through the paper's framework (organized by dimensions/themes that serve the argument)
+   - **Closest predecessors** — the 3-6 papers most similar to ours, with detailed positioning (what they do, what they miss)
+   - **Formal tools** — methodology papers the paper draws on (not direct predecessors but essential building blocks)
 
 5. **Identify gaps and opportunities:**
    - What questions remain unanswered?
-   - What data or methods could address them?
-   - Where do findings conflict?
-   - How do our results fill these gaps?
+   - What remains open even after our paper?
+   - Do NOT mix paper-planning material (specific contributions, theorems to prove) into the gaps section — that belongs in a separate plan document.
 
 6. **Extract citations** in BibTeX format for all papers discussed.
 
@@ -58,34 +56,37 @@ Parse `$ARGUMENTS`:
 
 ## Output Format
 
-Read the bundled template at `templates/template-summary-literature.md` (relative to this skill's directory) as the starting structure. The key sections are:
+Read the bundled template at `templates/template-summary-literature.md` (relative to this skill's directory) as the starting structure. The template has 8 sections:
 
-### Summary
-2-3 paragraph overview positioning the state of the literature relative to our paper's contribution.
+1. **Thesis** — one paragraph stating the paper's central claim
+2. **Framework** — the conceptual ideas that organize the reading (stated ONCE, not repeated later)
+3. **Scope** — where the thesis applies and where it doesn't
+4. **Literature through the lens** — existing work organized by dimensions/themes that serve the argument. Each dimension has: definition, key papers (1-2 lines each), and a "reading through our lens" paragraph
+5. **Closest predecessors** — detailed positioning against 3-6 closest papers (what they do, what they miss). Includes an assessment summary table
+6. **Formal tools** — methodology papers (2-3 lines each)
+7. **Gaps and research opportunities** — pure research questions (no paper-planning)
+8. **Key papers index** — dimension-organized reference list with summary links
 
-### Key Papers
+**Why this structure matters.** A flat list of papers ordered by relevance breaks down beyond ~15 papers. The 8-section structure separates three things that are easy to conflate: (a) what the literature says (sections 4-5), (b) how we position against it (section 5), and (c) what tools we draw on (section 6). It also prevents a common failure mode: mixing paper-planning material (contributions, theorems to prove) into the literature review. Research agenda belongs in a separate plan document, not here.
 
-For each paper, use this format. Use bullet points and sub-bullets within each field to separate distinct points — a dense paragraph mixing multiple ideas is hard to scan. Each bullet should make one claim or state one fact.
-
-```markdown
-### [Author (Year)](URL) — Short Title `[UNSUMMARIZED]` `[UNVERIFIED]`
-
-- **Publication:** *Journal Name*, vol. X(Y), pp. Z
-- **Main contribution:**
-  - [Point 1 — what the paper does]
-  - [Point 2 — the key mechanism or insight]
-  - [Point 3 — if needed, a specific result with theorem/proposition number]
-- **Method:** [Research design / data]
-- **Key finding:**
-  - [Finding 1 — with theorem/proposition number and direction of effect]
-  - [Finding 2 — if applicable]
-- **Relevance to our paper:**
-  - [Connection 1 — which of our results this relates to]
-  - [Connection 2 — how it differs from or complements our approach]
-  - [Connection 3 — specific comparison (e.g., "their X requires Y; ours does not")]
+**Key paper entry format** (used in sections 4 and 8). Always use bullet points and sub-bullets when describing specific papers — a dense paragraph mixing multiple ideas is hard to scan. Each sub-bullet should make one claim or state one fact:
+```
+- **Author (Year)** — [Summary](summary-year-author.md)
+  - Main contribution: [what the paper does]
+  - Key finding: [specific result, with theorem/proposition number]
+  - Connection to our thesis: [how it relates to our argument]
 ```
 
-When a field has only one point, a single line is fine — no need to force bullets. Use sub-bullets when a point has multiple aspects (e.g., a finding that differs across cases).
+**Closest predecessor format** (used in section 5):
+```
+### Author (Year) — Short Title
+[~10-15 lines. What they do. What they miss. Why the comparison matters.]
+```
+
+**Anti-patterns to avoid:**
+- Do NOT repeat the framework/thesis in every dimension's "reading through our lens" paragraph — apply it, don't restate it
+- Do NOT mix per-paper detailed entries into the dimensions section — keep dimensions concise (1-2 lines per paper), save detail for section 5 (predecessors) or individual summary files
+- Do NOT include paper-planning material (contributions, specific research questions, "extremal information structures to discover") — that belongs in `docs/quality_reports/plans/`
 
 ### Tags
 
@@ -198,6 +199,7 @@ If the project has `paper/references.bib`, offer to append new BibTeX entries th
 
 ## Important
 
+- **Use bullet points and sub-bullets whenever you are making multiple distinct points about a single subject** — whether that subject is a paper, a dimension, a claim, or a comparison. Never write a dense paragraph that mixes multiple ideas. Each bullet should make one claim or state one fact. This applies to paper descriptions, cross-side readings, assessment entries, and gap discussions alike. Reserve prose paragraphs only for genuinely narrative content (thesis statement, framework explanation, transitions between sections). The reason: bullet-point structure makes the review scannable — the reader can find a specific point without re-reading a whole block.
 - **All papers get `[UNSUMMARIZED]` and `[UNVERIFIED]` tags by default.** `[UNSUMMARIZED]` is removed only by the `deepen` workflow after reading the summary file and enriching the entry. `[UNVERIFIED]` is removed after citation verification. Neither tag is removed by judgment alone.
 - **Do NOT fabricate citations.** If you are unsure about a paper's details (authors, year, journal, title), flag it for the user to verify. Getting a citation wrong is worse than omitting it.
 - **BibTeX fields from memory are unreliable.** Even when a paper is real, LLM-recalled volume, pages, and DOI are often wrong. Mark individual fields you cannot verify with `% UNVERIFIED` comments in the BibTeX entry.
