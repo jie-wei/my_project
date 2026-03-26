@@ -71,7 +71,7 @@ Read the bundled template at `templates/template-summary-literature-synoptic.md`
 - **Order by generality.** More general/foundational ingredients first, specialized ones later. Within a level, order by publication date when natural.
 - **Cite one primary paper per leaf.** The paper that *introduced* this specific ingredient as its main contribution. Papers that *combine* existing ingredients don't get cited here — they appear in Sections 5 and 7.
 - **Separate what the world looks like from what we ask about it.** "Sellers might collude" is a question, not an ingredient. "Sellers might not know what other sellers are charging" is an ingredient.
-- **Group by agent.** Organize the tree by who the ingredient describes: Buyers, Sellers, Platform/Intermediary.
+- **Group by agent or role.** Organize the tree by who the ingredient describes — the natural groupings depend on the literature (e.g., in a two-sided market it might be demand side vs. supply side vs. intermediary; in a macro literature it might be households vs. firms vs. government).
 
 **Scope (Section 3).** What literature is surveyed? What falls outside? If there is a natural partition, state the criterion.
 
@@ -79,15 +79,7 @@ Read the bundled template at `templates/template-summary-literature-synoptic.md`
 
 ## Step 2: Literature by Question Theme (Section 4)
 
-Organize the literature by the common questions it asks. Questions fall into recurring themes — discover these themes from the papers rather than imposing them.
-
-Common question themes in economics literatures (starting point, not a straitjacket):
-- **Equilibrium characterization** — what happens in this market?
-- **Comparative statics** — how does changing an ingredient affect outcomes?
-- **Welfare** — who benefits, who is hurt?
-- **Sustainability** — can a particular outcome be sustained over time?
-- **Optimal design** — what's the best an agent/mechanism can achieve?
-- **Limits/bounds** — what outcomes are achievable across all possible configurations?
+Organize the literature by the common questions it asks. Questions fall into recurring themes — discover these themes from the papers rather than imposing them. Read what each paper actually asks, group similar questions together, and name the themes in the language the literature itself uses. Do not start from a predetermined list of theme categories — the themes should emerge from the papers. Different literatures ask different questions; the themes should reflect what *this* literature cares about.
 
 **Each question theme sub-section should:**
 1. Define the question (1-2 sentences, plain language)
@@ -110,7 +102,15 @@ Use bullet points and sub-bullets for factual content. Reserve prose paragraphs 
 
 ## Step 3: Matrix, Landmarks, and Remaining Sections (Sections 5-10)
 
-**Ingredient x Question Matrix (Section 5).** Compact table. Each cell = one-phrase answer + citation. Empty cells = gaps. Keep cell entries to one phrase — the matrix is a map, not a textbook. Use `—` for empty cells.
+**Ingredient x Question Matrix (Section 5).** The matrix is the compact map of the entire literature. Each cell answers: "what does the literature say about [ingredient] in the context of [question]?" Getting these answers right matters — a vague or generic cell defeats the purpose.
+
+**Building the matrix (three-step process):**
+
+1. **Map papers to cells.** For each (ingredient, question theme) pair, identify which papers address it. A paper belongs in a cell if it takes the ingredient as a modeling primitive and asks a question in that theme. Write this mapping to a temp file — it is the input for step 2.
+
+2. **Fill cells in parallel.** For each non-empty cell, spawn a sub-agent that reads the `summary-*.md` files for the papers in that cell and writes a one-phrase answer + citation. The sub-agent's prompt: "Read [summary file paths]. In one phrase, what does this literature find about [ingredient] in the context of [question theme]? Include the key citation." Each sub-agent sees only its own papers and produces one cell entry. This parallelization is the reason the matrix can be both concise and accurate — each cell gets focused attention grounded in the actual paper summaries, not LLM memory.
+
+3. **Assemble sub-matrices.** Collect all cell entries and arrange them into sub-matrices. **Split into multiple sub-matrices** when there are more than 3-4 question columns — a single wide table is unreadable in markdown and PDF. Group related question themes into each sub-matrix. Each sub-matrix shares the same ingredient rows but covers a different subset of question columns. Add a brief heading above each sub-matrix indicating which themes it covers. Use `—` for empty cells.
 
 **Most Important Papers (Section 6).** The 5-10 landmark papers. For each: what question they settled or opened, what they established (specific results), what remains open after them. This is from the field's perspective. Include an assessment summary table.
 
@@ -272,7 +272,7 @@ For a literature with 30+ papers, building the synoptic review in a single pass 
 - Do NOT organize Section 4 by ingredient alone — the question themes are the organizing principle, not the ingredients. The ingredient tree lives in Section 2; Section 4 is organized by *what questions people ask*.
 - Do NOT write synthesis paragraphs that compare to our paper — "What the literature has learned" is about the field's collective understanding, not about how it relates to us.
 - Do NOT put combination papers in the ingredient tree — the tree is for papers that *introduce* ingredients. Papers that combine existing ingredients go in Section 7.
-- Do NOT let the matrix grow beyond what fits on a page — if there are too many ingredients or questions, aggregate related ingredients into groups for the matrix rows.
+- Do NOT let the matrix grow beyond what fits on a page — split into multiple sub-matrices by grouping related question columns (max 3-4 question columns per table). Also aggregate related ingredients into groups for the matrix rows if there are too many.
 - Do NOT omit summary links on paper entries when the summary file exists — every entry must link to its summary.
 
 ---

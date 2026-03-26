@@ -1,7 +1,7 @@
 # Synoptic Literature Review: [Topic]
 
 **Date:** [YYYY-MM-DD]
-**Status:** [e.g., "Synoptic review of the collusion literature"]
+**Status:** [Status description]
 
 ---
 
@@ -19,17 +19,17 @@ The ingredient tree is the core of this section — it describes the building bl
 
 ### Ingredient Tree
 
-**[Agent group 1, e.g., Buyers]**
+**[Agent group 1]**
 - [Plain-language ingredient] (Author, Year, Journal) — [Summary](summary-year-author.md)
   - [Sub-case 1] (Author, Year, Journal)
   - [Sub-case 2] (Author, Year, Journal)
 - [Next ingredient] (Author, Year, Journal) — [Summary](summary-year-author.md)
 
-**[Agent group 2, e.g., Sellers]**
+**[Agent group 2]**
 - [Plain-language ingredient] (Author, Year, Journal)
   - ...
 
-**[Agent group 3, e.g., Platform or intermediary]**
+**[Agent group 3]**
 - [Plain-language ingredient] (Author, Year, Journal)
 
 [Mark ingredients not present in the surveyed literature with $^*$.]
@@ -38,7 +38,7 @@ The ingredient tree is the core of this section — it describes the building bl
 
 ## 3. Scope
 
-[What literature is covered? What is excluded and why? If there is a natural partition (e.g., markets where buyers compare prices vs. markets where they don't), state the criterion that determines which side a paper falls on.]
+[What literature is covered? What is excluded and why? If there is a natural partition, state the criterion that determines which side a paper falls on.]
 
 ---
 
@@ -53,14 +53,14 @@ The ingredient tree is the core of this section — it describes the building bl
 
 [If helpful, include the Ingredient x Question Matrix here as a compact overview, or include it as a standalone section (Section 5).]
 
-### 4.1 [Question Theme 1]
+### 4.1 [Question Theme]
 
 **Question:** [What is this theme asking, in plain language?]
 
 **Key papers:**
 
 - **Author (Year, Journal)** — [Summary](summary-year-author.md)
-  - **Model:** [setting — e.g., "repeated Bertrand duopoly with differentiated products"]
+  - **Model:** [setting]
   - **Main contribution:** [what the paper does]
   - **Key finding:** [specific result, with theorem/proposition number if applicable]
   - **Connection:** [how it relates to the seminal paper or to the paper that came before — trace the evolution]
@@ -72,9 +72,9 @@ The ingredient tree is the core of this section — it describes the building bl
 
 **What the literature has learned:** [Synthesis paragraph. What has this line of work collectively established? What remains debated?]
 
-### 4.2 [Question Theme 2]
+### 4.2 [Question Theme]
 
-[Same structure. Repeat for each theme.]
+[Same structure. Repeat for each theme discovered from the papers.]
 
 ### 4.N [Cross-Cutting Question]
 
@@ -84,12 +84,21 @@ The ingredient tree is the core of this section — it describes the building bl
 
 ## 5. Ingredient x Question Matrix
 
-[Compact matrix. Each cell = one-phrase answer + citation. Empty cells = gaps.]
+[Split into multiple sub-matrices so each table has at most 3-4 question columns. Group related themes together. Each sub-matrix shares the same ingredient rows.]
 
-| Ingredient | [Question 1] | [Question 2] | [Question 3] | ... |
-|------------|-------------|-------------|-------------|-----|
-| [Ingr. 1]  | [answer] (Author) | [answer] (Author) | --- | ... |
-| [Ingr. 2]  | --- | [answer] (Author) | [answer] (Author) | ... |
+### Matrix A: [Theme group label — discovered from the literature, not predetermined]
+
+| Ingredient | [Theme column 1] | [Theme column 2] | [Theme column 3] |
+|------------|-------------------|-------------------|-------------------|
+| [Ingr. 1]  | [one-phrase answer + citation] | [one-phrase answer + citation] | — |
+| [Ingr. 2]  | — | [one-phrase answer + citation] | [one-phrase answer + citation] |
+
+### Matrix B: [Theme group label]
+
+| Ingredient | [Theme column 4] | [Theme column 5] | [Theme column 6] |
+|------------|-------------------|-------------------|-------------------|
+| [Ingr. 1]  | [one-phrase answer + citation] | — | [one-phrase answer + citation] |
+| [Ingr. 2]  | [one-phrase answer + citation] | [one-phrase answer + citation] | — |
 
 **Gaps:** [List the most interesting empty cells — questions nobody has asked about certain ingredients.]
 
