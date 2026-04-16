@@ -108,13 +108,55 @@ The document is a self-contained proof walkthrough. Use a standalone article cla
 - Prior results assumed (with references to where they are proved)
 
 **Phase C — Proof (one section, with subsections per step):**
+
 - Start with a numbered overview listing ALL proof steps (one sentence each) — this gives the reader the full architecture before diving in
-- Then one subsection per step, following the pattern: Lemma statement → Proof → Implication (what this step buys us for the overall argument)
-- **Proofs should be detailed and crystal clear.** Every step should be expanded enough that a reader with fresh eyes can follow without filling in gaps. Do not compress proofs for brevity — clarity is the priority. If a step takes half a page, that's fine.
+- Then one subsection per step, written as a **proof chain** (see format below)
 - End with a "Combining the steps" subsection that restates the proof skeleton with cross-references
-- Use intuition paragraphs after proofs to explain the economic content
 - Cross-reference related results via `\ref{}`
 - **Notation:** use model primitives directly in equations rather than introducing shorthand notation. If you notice a recurring expression that would benefit from shorthand, suggest it to the user — they can approve it and register it as project notation. Do not introduce shorthand on your own.
+
+**Proof chain format (LaTeX adaptation).** Each proof step is a numbered subsection containing:
+
+1. **The equation or claim** — a displayed equation showing the current state of the derivation
+2. **Commentary** — an italic paragraph immediately below, explaining:
+   - What result or rule justifies this step (name it explicitly)
+   - Why the conditions of that result are satisfied here
+   - What the step accomplishes conceptually — what changes and why it matters
+   - If this is the crux of the proof (not just mechanical), say so
+
+The goal is a proof chain that *teaches*, not just verifies. A reader should finish able to replicate the argument on a different problem. Every step is a decision point; the chain makes those decisions explicit.
+
+```latex
+% Pattern for each proof step:
+\subsection{Step N. [descriptive title]}
+
+\begin{lemma}\label{lem:stepN}
+[Formal statement of what this step establishes.]
+\end{lemma}
+
+\textbf{Proof.}
+$$[starting expression]$$
+$$= [expression after first move]$$
+
+\emph{[Result name]: [why this result applies here; what conditions
+are needed and why they hold; what mathematical or economic content
+this step carries — 2-4 lines.]}
+
+$$= [expression after second move]$$
+
+\emph{[Next justification, same structure.]}
+
+... \qed
+
+\textit{Implication:} [What this step buys us for the overall argument.
+Why does this matter? What would break without it?]
+```
+
+**Key principles:**
+- **Derive forward** — start from the object in question and work toward the conclusion. Never state the answer first and verify backward.
+- **Every algebraic step must be justified** — name the rule, check the conditions, explain the content. Do not skip "obvious" steps.
+- **Proofs should be detailed and crystal clear.** Every step should be expanded enough that a reader with fresh eyes can follow without filling in gaps. Do not compress proofs for brevity — clarity is the priority. If a step takes half a page, that's fine.
+- **Flag the hard steps.** If a step is the intellectual crux (not just bookkeeping), say so in the commentary. This helps the reader distinguish routine algebra from the moves that carry real mathematical content.
 
 **Phase D — Discussion:**
 - What the argument does NOT use (clarifies generality): identify the 1-2 key mathematical properties that drive the result and what would break without them
