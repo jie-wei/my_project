@@ -32,12 +32,11 @@ Parse `$ARGUMENTS`:
 
 Build on existing work rather than starting from scratch:
 
-1. **Read `summary-*.md` files** in `docs/literature/` — individual paper summaries from `/read-paper` contain model details, key findings, and core assessments.
-2. **Read `summary-literature-comparison*.md`** if it exists — the comparison review contains paper descriptions that are useful for extracting ingredients and findings. Ignore the "connection to thesis" and "reading through our lens" parts — those belong to the comparison, not here.
-3. **Read `paper/main.tex`** if it has a features/ingredients section — it may already contain an ingredient tree.
-4. **Check `paper/references.bib`** for papers already in the project.
-6. **Use `WebSearch`** to find recent publications that may be missing from local files.
-7. **Use `WebFetch`** to access working paper repositories and abstracts.
+1. **Read `summary-*.md` files** in `docs/literature/` — individual paper summaries from `/read-paper` contain model details, key findings, and core assessments. Do NOT read `summary-literature-comparison*.md` — that is a comparison review written through the lens of our paper, and importing its framing would contaminate the synoptic review's neutrality.
+2. **Read `paper/main.tex`** if it has a features/ingredients section — it may already contain an ingredient tree.
+3. **Check `paper/references.bib`** for papers already in the project.
+4. **Use `WebSearch`** to find recent publications that may be missing from local files.
+5. **Use `WebFetch`** to access working paper repositories and abstracts.
 
 ---
 
@@ -90,10 +89,10 @@ Organize the literature by the common questions it asks. Questions fall into rec
 **Key paper entry format** (used in Sections 4 and 10):
 ```
 - **Author (Year, Journal)** — [Summary](summary-year-author.md)
-  - **Model:** [setting]
-  - **Main contribution:** [what the paper does]
-  - **Key finding:** [specific result, with theorem/proposition number]
-  - **Connection:** [how it relates to earlier papers on this question — the evolution]
+    - **Model:** [setting]
+    - **Main contribution:** [what the paper does]
+    - **Key finding:** [specific result, with theorem/proposition number]
+    - **Connection:** [how it relates to earlier papers on this question — the evolution]
 ```
 
 Use bullet points and sub-bullets for factual content. Reserve prose paragraphs for synthesis ("What the literature has learned"). The reason: bullet-point structure makes factual content scannable, while synthesis reads better as connected prose.
@@ -157,14 +156,14 @@ The idea: initial entries are written from abstracts and LLM memory (shallow). A
 
 ```markdown
 - **Author (Year, Journal)** — [Summary](summary-year-author.md)
-  - **Model:** [updated setting — grounded in actual paper content]
-  - **Main contribution:**
-    - [Updated point 1 — with specific theorem/proposition numbers]
-    - [Updated point 2 — grounded in actual paper content]
-  - **Key finding:**
-    - [Updated finding 1 — specific, with result numbers]
-    - [Updated finding 2 — if applicable]
-  - **Connection:** [Updated — precisely traces how this paper extends Author2 (Year2) by adding X, changing Y]
+    - **Model:** [updated setting — grounded in actual paper content]
+    - **Main contribution:**
+        - [Updated point 1 — with specific theorem/proposition numbers]
+        - [Updated point 2 — grounded in actual paper content]
+    - **Key finding:**
+        - [Updated finding 1 — specific, with result numbers]
+        - [Updated finding 2 — if applicable]
+    - **Connection:** [Updated — precisely traces how this paper extends Author2 (Year2) by adding X, changing Y]
 ```
 
 Note: `[UNSUMMARIZED]` is gone, replaced by the clickable Summary link. `[UNVERIFIED]` stays until citation details are independently confirmed.
@@ -285,6 +284,7 @@ For a literature with 30+ papers, building the synoptic review in a single pass 
 - **Citation format.** Always include the journal abbreviation: **Author (Year, Journal)**. Standard abbreviations: AER, Ecma, JPE, QJE, REStud, RAND, JIE, TE, JET, AEJ:Micro, MS. For working papers, use "WP." This lets the reader gauge venue without clicking through.
 - **Summary links are mandatory.** Every paper entry must include a `[Summary](summary-year-author.md)` link if the summary file exists. Before writing entries, scan `docs/literature/summary-*.md` to build a list of available summaries. Papers without a summary file keep the `[UNSUMMARIZED]` tag.
 - **Tags.** Every paper entry gets `[UNSUMMARIZED]` and `[UNVERIFIED]` tags by default. `[UNSUMMARIZED]` is removed only by `deepen` after reading the summary. `[UNVERIFIED]` is removed after citation verification via WebSearch/WebFetch or confirmation in `paper/references.bib`. Neither tag is removed by judgment alone.
+- **Use 4-space indentation for nested lists.** Pandoc (used by `/convert-md-to-pdf`) requires 4-space indentation per nesting level — 2-space nesting gets flattened into a single paragraph. Also add a blank line between a bold header (like `**Buyers**`) and the list that follows it, so pandoc treats them as separate blocks.
 - **Write math for PDF compatibility.** Three rules:
   - Multi-symbol expressions must be explicit `$...$` math. Write `$\mu \to 1$`, not `(μ→1)`.
   - Subscripts longer than one character need braces. Write `$N_{eff}$`, not `N_eff`.

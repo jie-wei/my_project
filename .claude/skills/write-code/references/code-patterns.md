@@ -34,10 +34,10 @@ EXPLORATION_OUTPUT = ROOT / "output" / "exploration"
 Extend config.py by adding new constants below the existing ones:
 
 ```python
-# {variant-name} paths
-PROCESSED_{VARIANT_NAME} = ROOT / "data" / "processed" / "{variant-name}"
-TABLES_{VARIANT_NAME} = ROOT / "output" / "{tier}" / "tables" / "{variant-name}"
-FIGURES_{VARIANT_NAME} = ROOT / "output" / "{tier}" / "figures" / "{variant-name}"
+# {variant_name} paths
+PROCESSED_{VARIANT_NAME} = ROOT / "data" / "processed" / "{variant_name}"
+TABLES_{VARIANT_NAME} = ROOT / "output" / "{tier}" / "tables" / "{variant_name}"
+FIGURES_{VARIANT_NAME} = ROOT / "output" / "{tier}" / "figures" / "{variant_name}"
 ```
 
 **Naming convention:** `{CATEGORY}_{VARIANT_NAME}` in ALL_CAPS_SNAKE_CASE.

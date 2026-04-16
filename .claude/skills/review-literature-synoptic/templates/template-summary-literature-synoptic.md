@@ -20,16 +20,19 @@ The ingredient tree is the core of this section — it describes the building bl
 ### Ingredient Tree
 
 **[Agent group 1]**
+
 - [Plain-language ingredient] (Author, Year, Journal) — [Summary](summary-year-author.md)
-  - [Sub-case 1] (Author, Year, Journal)
-  - [Sub-case 2] (Author, Year, Journal)
+    - [Sub-case 1] (Author, Year, Journal)
+    - [Sub-case 2] (Author, Year, Journal)
 - [Next ingredient] (Author, Year, Journal) — [Summary](summary-year-author.md)
 
 **[Agent group 2]**
+
 - [Plain-language ingredient] (Author, Year, Journal)
-  - ...
+    - ...
 
 **[Agent group 3]**
+
 - [Plain-language ingredient] (Author, Year, Journal)
 
 [Mark ingredients not present in the surveyed literature with $^*$.]
@@ -60,15 +63,15 @@ The ingredient tree is the core of this section — it describes the building bl
 **Key papers:**
 
 - **Author (Year, Journal)** — [Summary](summary-year-author.md)
-  - **Model:** [setting]
-  - **Main contribution:** [what the paper does]
-  - **Key finding:** [specific result, with theorem/proposition number if applicable]
-  - **Connection:** [how it relates to the seminal paper or to the paper that came before — trace the evolution]
+    - **Model:** [setting]
+    - **Main contribution:** [what the paper does]
+    - **Key finding:** [specific result, with theorem/proposition number if applicable]
+    - **Connection:** [how it relates to the seminal paper or to the paper that came before — trace the evolution]
 
 - **Author (Year, Journal)** — [Summary](summary-year-author.md)
-  - **Main contribution:** [what the paper does]
-  - **Key finding:** [specific result]
-  - **Connection:** [how it advances or modifies the previous paper's answer]
+    - **Main contribution:** [what the paper does]
+    - **Key finding:** [specific result]
+    - **Connection:** [how it advances or modifies the previous paper's answer]
 
 **What the literature has learned:** [Synthesis paragraph. What has this line of work collectively established? What remains debated?]
 

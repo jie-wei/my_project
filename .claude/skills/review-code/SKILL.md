@@ -31,7 +31,7 @@ Standards: production-grade data pipeline + published replication package rigor.
 
 ### 1. Module Structure (all tiers)
 
-Applies to all files in `code/src/mypackage/` — whether `core/`, `exploration/{variant-name}/`, or `archive/{variant-name}/`.
+Applies to all files in `code/src/mypackage/` — whether `core/`, `exploration/{variant_name}/`, or `archive/{variant_name}/`.
 
 - Pure logic — no file I/O (open, read, write, pathlib operations)
 - Functions take data in, return data out
@@ -43,10 +43,10 @@ Applies to all files in `code/src/mypackage/` — whether `core/`, `exploration/
 
 ### 2. Script Structure (all tiers)
 
-Applies to all files in `code/scripts/` — whether `core/` (numbered scripts), `exploration/{variant-name}/`, or `archive/{variant-name}/`.
+Applies to all files in `code/scripts/` — whether `core/` (numbered scripts), `exploration/{variant_name}/`, or `archive/{variant_name}/`.
 
 - Core scripts: numbered prefix (`01_clean.py`, `02_merge.py`, etc.)
-- Exploration/archive scripts: named subfolder (`code/scripts/{tier}/{variant-name}/`)
+- Exploration/archive scripts: named subfolder (`code/scripts/{tier}/{variant_name}/`)
 - Clear sections: imports, setup, main logic, output
 - Imports from `src/mypackage/` — not copy-pasted logic
 - Script can be run standalone
@@ -86,8 +86,8 @@ Applies to all files in `code/scripts/` — whether `core/` (numbered scripts), 
 - `data/raw/` is NEVER modified
 - Data flows: raw/ -> scripts -> intermediate/ -> scripts -> processed/ -> scripts -> output/
 - Intermediate data written to `data/intermediate/`
-- Processed data written to `data/processed/{variant-name}/`
-- Output files written to `output/{tier}/tables/{variant-name}/` and `output/{tier}/figures/{variant-name}/`
+- Processed data written to `data/processed/{variant_name}/`
+- Output files written to `output/{tier}/tables/{variant_name}/` and `output/{tier}/figures/{variant_name}/`
 
 **Trace the I/O chain for each script.** For every script in the variant, verify: what does it read, what does it write, and do those paths match the variant's expected data pipeline? A script that reads from the wrong input or writes to the wrong output directory is a silent correctness bug — the code runs fine but produces results in the wrong place or from the wrong data.
 
@@ -188,7 +188,7 @@ ISSUES:
 
 ## Output Location
 
-Save to `docs/quality_reports/reviews/{tier}/review-code-{variant-name}.md`. Create the directory if it does not exist. The report replaces the previous one on re-run — no date suffix.
+Save to `docs/quality_reports/reviews/{tier}/review-code-{variant_name}.md`. Create the directory if it does not exist. The report replaces the previous one on re-run — no date suffix.
 
 ---
 

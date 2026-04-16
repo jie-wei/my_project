@@ -102,7 +102,7 @@ with open(tex_path, "w") as f:
 
 The `.tex` file should be directly importable in a LaTeX document:
 ```latex
-\input{output/{tier}/tables/{variant-name}/regression_results.tex}
+\input{output/{tier}/tables/{variant_name}/regression_results.tex}
 ```
 
 ## Notes

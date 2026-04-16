@@ -1,5 +1,11 @@
 # Project Conventions
 
+## Naming
+
+- **Variant names**: `snake_case` everywhere (e.g., `iv_approach`, `bootstrap_se`). Used for subfolder names across all layers (`code/`, `docs/`, `output/`, `data/`). Python requires underscores for importable package names, and we use the same convention uniformly to avoid splits.
+- **Skill names, session logs, summaries**: `kebab-case` (e.g., `write-code`, `review-summary`).
+- **Python files, functions, variables**: `snake_case` (PEP 8).
+
 ## Code Organization
 
 - Pure logic in `code/src/mypackage/core/` — no file I/O, no paths. Functions take data in, return data out.

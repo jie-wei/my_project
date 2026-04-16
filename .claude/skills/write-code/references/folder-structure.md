@@ -7,7 +7,7 @@ This project uses a three-tier structure (core / exploration / archive) mirrored
 ### src/ — pure logic
 
 ```
-code/src/mypackage/{tier}/{variant-name}/
+code/src/mypackage/{tier}/{variant_name}/
 ├── __init__.py
 ├── module_a.py
 └── module_b.py
@@ -28,20 +28,20 @@ code/scripts/core/NN_{descriptive_name}.py
 
 **Exploration tier** — named subfolder:
 ```
-code/scripts/exploration/{variant-name}/
+code/scripts/exploration/{variant_name}/
 ├── run_analysis.py
 └── explore_results.py
 ```
 
 **Archive tier** — same as exploration:
 ```
-code/scripts/archive/{variant-name}/
+code/scripts/archive/{variant_name}/
 ```
 
 ### tests/
 
 ```
-code/tests/test_{variant-name}.py
+code/tests/test_{variant_name}.py
 ```
 
 - One test file per variant
@@ -53,19 +53,19 @@ code/tests/test_{variant-name}.py
 data/
 ├── raw/                           # Sacred — never modify
 ├── intermediate/                  # Shared across variants (commonly used cleaned data)
-└── processed/{variant-name}/      # Variant-specific processed data
+└── processed/{variant_name}/      # Variant-specific processed data
 ```
 
 - `raw/` is read-only. Scripts read from it but never write to it.
 - `intermediate/` holds data that multiple variants share (e.g., a cleaned panel used by several analyses).
-- `processed/{variant-name}/` holds data specific to one variant's pipeline.
+- `processed/{variant_name}/` holds data specific to one variant's pipeline.
 
 ## Output Layers
 
 ```
 output/{tier}/
-├── tables/{variant-name}/    # .tex and .csv files
-└── figures/{variant-name}/   # .pdf and .png files
+├── tables/{variant_name}/    # .tex and .csv files
+└── figures/{variant_name}/   # .pdf and .png files
 ```
 
 - Tables: `.tex` files directly importable with `\input{}` in LaTeX, plus `.csv` for quick inspection
@@ -74,7 +74,7 @@ output/{tier}/
 ## Documentation (optional)
 
 ```
-docs/{tier}/{variant-name}/
+docs/{tier}/{variant_name}/
 ```
 
 - Analysis notes, methodology docs — create only if needed

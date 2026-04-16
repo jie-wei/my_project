@@ -40,7 +40,7 @@
 % --- Captions ---
 \usepackage[margin=10pt,font=small,labelfont=bf,labelsep=period]{caption}
 
-% --- Output Directory (relative path from draft/{tier}/{variant-name}/ to output/{tier}/) ---
+% --- Output Directory (relative path from docs/{tier}/{variant_name}/ to output/{tier}/) ---
 % Compute: 3 levels up to project root, then into output/{tier}
 \newcommand{\outdir}{PLACEHOLDER}
 
@@ -106,21 +106,21 @@ PLACEHOLDER: Authors
 % PLACEHOLDER
 
 % --- Table template ---
-% Uncomment and replicate for each table in output/{tier}/tables/{variant-name}/
+% Uncomment and replicate for each table in output/{tier}/tables/{variant_name}/
 %
 % \begin{table}[H]
 %   \centering
 %   \caption{PLACEHOLDER: descriptive caption}
 %   \label{tab:PLACEHOLDER}
-%   \input{\outdir/tables/{variant-name}/PLACEHOLDER}
+%   \input{\outdir/tables/{variant_name}/PLACEHOLDER}
 % \end{table}
 
 % --- Figure template ---
-% Uncomment and replicate for each figure in output/{tier}/figures/{variant-name}/
+% Uncomment and replicate for each figure in output/{tier}/figures/{variant_name}/
 %
 % \begin{figure}[H]
 %   \centering
-%   \includegraphics[width=0.9\textwidth]{\outdir/figures/{variant-name}/PLACEHOLDER.png}
+%   \includegraphics[width=0.9\textwidth]{\outdir/figures/{variant_name}/PLACEHOLDER.png}
 %   \caption{\textbf{PLACEHOLDER: bold title.} PLACEHOLDER: detailed description.}
 %   \label{fig:PLACEHOLDER}
 % \end{figure}
@@ -131,12 +131,12 @@ PLACEHOLDER: Authors
 % \begin{figure}[H]
 %   \centering
 %   \begin{subfigure}{0.48\textwidth}
-%     \includegraphics[width=\textwidth]{\outdir/figures/{variant-name}/PLACEHOLDER.png}
+%     \includegraphics[width=\textwidth]{\outdir/figures/{variant_name}/PLACEHOLDER.png}
 %     \caption{PLACEHOLDER}
 %   \end{subfigure}
 %   \hfill
 %   \begin{subfigure}{0.48\textwidth}
-%     \includegraphics[width=\textwidth]{\outdir/figures/{variant-name}/PLACEHOLDER.png}
+%     \includegraphics[width=\textwidth]{\outdir/figures/{variant_name}/PLACEHOLDER.png}
 %     \caption{PLACEHOLDER}
 %   \end{subfigure}
 %   \caption{PLACEHOLDER: overall caption}

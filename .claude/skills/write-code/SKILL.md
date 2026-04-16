@@ -67,10 +67,10 @@ Check which folders and config.py paths already exist. Create only what's missin
 
 **Output path convention:** Figures and tables go in separate subdirectories under `output/{tier}/`, not flat in a variant folder:
 ```
-output/{tier}/figures/{variant-name}/   # .pdf + .png
-output/{tier}/tables/{variant-name}/    # .tex + .csv
+output/{tier}/figures/{variant_name}/   # .pdf + .png
+output/{tier}/tables/{variant_name}/    # .tex + .csv
 ```
-Register these in config.py as `FIGURES_{VARIANT_NAME}` and `TABLES_{VARIANT_NAME}`. Never save outputs directly into a flat `output/{tier}/{variant-name}/` folder.
+Register these in config.py as `FIGURES_{VARIANT_NAME}` and `TABLES_{VARIANT_NAME}`. Never save outputs directly into a flat `output/{tier}/{variant_name}/` folder.
 
 Read `references/code-patterns.md` for the config.py extension pattern and all code conventions.
 
@@ -116,8 +116,8 @@ Key conventions:
 ## Step 5: Verify
 
 1. **Run the code**: execute scripts, check outputs are created at expected paths
-2. **Run tests**: `cd code && uv run pytest tests/test_{variant-name}.py -v`
-3. **Run `/review-code`** on all new/modified files — report saves to `docs/quality_reports/reviews/{tier}/review-code-{variant-name}.md`
+2. **Run tests**: `cd code && uv run pytest tests/test_{variant_name}.py -v`
+3. **Run `/review-code`** on all new/modified files — report saves to `docs/quality_reports/reviews/{tier}/review-code-{variant_name}.md`
 4. **Read the review report**: if issues are found, fix them and re-run `/review-code` until the report is clean
 5. **Check quality gate**: 80/100 for core, 60/100 for exploration
 

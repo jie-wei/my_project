@@ -91,10 +91,10 @@ Read the bundled template at `templates/template-summary-literature.md` (relativ
 **Key paper entry format** (used in sections 4 and 8). Always use bullet points and sub-bullets when describing specific papers — a dense paragraph mixing multiple ideas is hard to scan. Each sub-bullet should make one claim or state one fact. Sub-bullet titles are bold:
 ```
 - **Author (Year, Journal)** — [Summary](summary-year-author.md)
-  - **Model:** [setting — e.g., "repeated Bertrand duopoly with differentiated products"]
-  - **Main contribution:** [what the paper does]
-  - **Key finding:** [specific result, with theorem/proposition number]
-  - **Connection to thesis:** [how it relates to our argument]
+    - **Model:** [setting — e.g., "repeated Bertrand duopoly with differentiated products"]
+    - **Main contribution:** [what the paper does]
+    - **Key finding:** [specific result, with theorem/proposition number]
+    - **Connection to thesis:** [how it relates to our argument]
 ```
 
 **Closest predecessor format** (used in section 5):
@@ -290,6 +290,7 @@ If the project has `paper/references.bib`, offer to append new BibTeX entries th
 
 ## Important
 
+- **Use 4-space indentation for nested lists.** Pandoc (used by `/convert-md-to-pdf`) requires 4-space indentation per nesting level — 2-space nesting gets flattened into a single paragraph. Also add a blank line between a bold header (like `**Buyers**`) and the list that follows it, so pandoc treats them as separate blocks.
 - **Write math for PDF compatibility.** The literature review markdown will likely be converted to PDF via pandoc + XeLaTeX. Three rules prevent rendering failures:
   - **Multi-symbol expressions must be explicit `$...$` math.** Write `$\mu \to 1$`, not `(μ→1)`. The preprocessor handles isolated Unicode symbols (a standalone `β` or `→`) but breaks on expressions that mix Unicode with text and parentheses.
   - **Subscripts longer than one character need braces.** Write `$N_{eff}$`, not `N_eff`. Without braces, LaTeX subscripts only the first character (`N_e` + `ff`).

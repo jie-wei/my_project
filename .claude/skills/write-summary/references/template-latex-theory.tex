@@ -1,0 +1,161 @@
+% Math/Theory Summary Template (Mode B)
+% For pure math explorations without data pipelines.
+% Goal: self-contained document that a reader with fresh eyes can follow.
+%
+% Key principles:
+%   - State the question and answer upfront (Introduction)
+%   - List all proof steps before diving into details (Proof overview)
+%   - Each step: Lemma statement -> Proof -> Implication (what this buys us)
+%   - Discussion: what the argument does NOT use, remaining gaps
+%   - Use model primitives directly in equations; avoid auxiliary notation
+
+\documentclass[12pt]{article}
+
+% --- Packages ---
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts,mathtools,amsthm}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{setspace}
+
+% --- Page Layout ---
+\usepackage[margin=1in]{geometry}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8em}
+
+% --- Section Formatting ---
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\scshape\centering}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalfont\bfseries}{\thesubsection.}{0.5em}{}
+
+% --- Hyperlinks ---
+\hypersetup{
+  colorlinks   = true,
+  urlcolor     = blue,
+  linkcolor    = blue,
+  citecolor    = black,
+}
+
+% --- Theorem environments ---
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+
+% --- Common Math Shortcuts (add project-specific ones as needed) ---
+\newcommand{\E}{\mathbb{E}}
+\DeclareMathOperator{\supp}{supp}
+
+\begin{document}
+
+% --- Title Block ---
+\begin{center}
+{\Large \textbf{PLACEHOLDER: Title}}
+
+{\large PLACEHOLDER: Subtitle}
+
+\medskip
+
+Internal Report \hspace{1em}|\hspace{1em} \today
+\end{center}
+
+
+%-----------------------------------------------------%
+\section{Introduction}\label{sec:intro}
+%-----------------------------------------------------%
+
+% State the question precisely. What is the reader about to learn?
+% PLACEHOLDER: "This note asks: [precise question]?"
+
+% State the answer. Don't make the reader wait.
+% PLACEHOLDER: "The answer is [yes/no]. [One-paragraph summary of the result.]"
+
+% Sketch the proof strategy in 2-3 sentences.
+% PLACEHOLDER: "The proof proceeds by [high-level strategy]."
+
+% Flag any remaining gaps honestly.
+% PLACEHOLDER: \textcolor{red}{One gap remains: [description].}
+
+
+%-----------------------------------------------------%
+\section{Main Result}\label{sec:result}
+%-----------------------------------------------------%
+
+% State the theorem formally. This is the reference point for everything below.
+
+% \begin{theorem}[PLACEHOLDER: descriptive name]\label{thm:main}
+% PLACEHOLDER: formal statement.
+% \end{theorem}
+
+
+%-----------------------------------------------------%
+\section{Proof}\label{sec:proof}
+%-----------------------------------------------------%
+
+% List ALL proof steps upfront as a numbered list.
+% This gives the reader the full architecture before diving into details.
+% Each step should be one sentence.
+
+% The proof has N steps:
+% \begin{enumerate}
+%   \item PLACEHOLDER: Step 1 description.
+%   \item PLACEHOLDER: Step 2 description.
+%   \item ...
+% \end{enumerate}
+
+
+% --- Step 1 ---
+% \subsection{Step 1: PLACEHOLDER title.}\label{sec:step1}
+%
+% \begin{lemma}\label{lem:step1}
+% PLACEHOLDER: formal statement.
+% \end{lemma}
+%
+% \begin{proof}
+% PLACEHOLDER: proof body.
+% \end{proof}
+%
+% \textit{Implication:} PLACEHOLDER: what this step buys us for the overall argument.
+% Why does this matter? What would break without it?
+
+
+% --- Step 2 ---
+% \subsection{Step 2: PLACEHOLDER title.}\label{sec:step2}
+% [Same pattern: Lemma -> Proof -> Implication]
+
+
+% --- Combining the steps ---
+% \subsection{Combining the steps.}\label{sec:combine}
+%
+% Restate the proof skeleton with cross-references:
+% Take any [object]. By Lemma~\ref{lem:step1}, [consequence].
+% By Lemma~\ref{lem:step2}, [consequence]. ...
+% Therefore [main result]. \qed
+
+
+%-----------------------------------------------------%
+\section{Discussion}\label{sec:discussion}
+%-----------------------------------------------------%
+
+% What the argument does NOT use.
+% This clarifies the generality of the result.
+% PLACEHOLDER: "The proof never examines [aspect]. It works for any [object] because: ..."
+
+% Remaining gaps.
+% PLACEHOLDER: "[Description of what is assumed but not proved.]"
+
+
+%-----------------------------------------------------%
+% OPTIONAL: Appendix for alternative proofs or extensions
+%-----------------------------------------------------%
+
+% \appendix
+% \section{PLACEHOLDER: Alternative Argument}\label{app:alt}
+% Use when there is a second proof technique worth recording,
+% or an extension that doesn't fit the main flow.
+
+
+\end{document}

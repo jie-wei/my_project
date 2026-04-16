@@ -45,15 +45,15 @@ Include any important distinctions the framework relies on (e.g., exogenous vs. 
 **Key papers:**
 
 - **Author (Year, Journal)** — [Summary link if available]
-  - **Model:** [setting — e.g., "repeated Bertrand duopoly with differentiated products"]
-  - **Main contribution:** [what the paper does]
-  - **Key finding:** [specific result, with theorem/proposition number if applicable]
-  - **Connection to thesis:** [how it relates]
+    - **Model:** [setting — e.g., "repeated Bertrand duopoly with differentiated products"]
+    - **Main contribution:** [what the paper does]
+    - **Key finding:** [specific result, with theorem/proposition number if applicable]
+    - **Connection to thesis:** [how it relates]
 
 - **Author (Year, Journal)** — [Summary link if available]
-  - Main contribution: [what the paper does]
-  - Key finding: [specific result]
-  - Connection to our thesis: [how it relates]
+    - Main contribution: [what the paper does]
+    - Key finding: [specific result]
+    - Connection to our thesis: [how it relates]
 
 **Reading through our lens:** [How this dimension relates to the thesis. Use the paper's corrected framing — do not restate the thesis, just apply it.]
 
