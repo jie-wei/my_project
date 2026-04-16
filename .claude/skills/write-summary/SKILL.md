@@ -28,9 +28,9 @@ Determine the tier (core / exploration / archive) and variant_name from context 
 
 Determine the mode by checking what exists:
 
-**Empirics:** `output/{tier}/tables/{variant_name}/` or `output/{tier}/figures/{variant_name}/` exist → read `references/workflow-empirics.md` and follow it.
+**Empirics:** `output/{tier}/tables/{variant_name}/` or `output/{tier}/figures/{variant_name}/` exist → read `references/workflow-empirics.md` and follow it. Use `references/template-latex-empirics.tex` as the LaTeX template.
 
-**Theory:** No pipeline outputs, but `docs/{tier}/{variant_name}/` contains `.md` result files, notes, or formulations → read `references/workflow-theory.md` and follow it.
+**Theory:** No pipeline outputs, but `docs/{tier}/{variant_name}/` contains `.md` result files, notes, or formulations → read `references/workflow-theory.md` and follow it. Use `references/template-latex-theory.tex` as the LaTeX template.
 
 If neither exists, tell the user and stop.
 
