@@ -15,4 +15,5 @@
 
 ## LaTeX
 
-- **Always `cd paper/` before running `latexmk`.** The `.latexmkrc` in `paper/` only takes effect from that directory. Running from the project root dumps aux files in the wrong place and fails to find template classes.
+- **Read `.claude/rules/standalone-latex-compile.md` before running any LaTeX command.** It covers the two compile modes (full paper vs single section), the `cd paper/` requirement, the subfiles structure, and how to read `.build/*.log` on failure.
+- Recompile after every edit to a `.tex` or `.bib` file. Don't wait to be asked.

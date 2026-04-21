@@ -16,6 +16,7 @@
 \usepackage{fancyhdr}
 \usepackage[useregional]{datetime2}
 \usepackage[noabbrev]{cleveref}
+\usepackage{subfiles}
 
 \allowdisplaybreaks[4]
 
@@ -86,9 +87,13 @@ Abstract text.
 \newpage
 \pagenumbering{arabic}
 \setcounter{page}{1}
-\section{Introduction}
 
+\subfile{sections/01-introduction}
+\subfile{sections/02-next-section}
 
+\appendix
+\subfile{appendices/A-proofs}
+\subfile{appendices/B-extensions}
 
 \newpage
 \bibliographystyle{ecta}

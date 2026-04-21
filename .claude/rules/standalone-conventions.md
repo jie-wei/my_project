@@ -58,9 +58,7 @@
 
 ## LaTeX
 
-- Always compile with `latexmk -xelatex` — never raw `xelatex`/`pdflatex`/`bibtex`. `latexmk` handles multi-pass compilation automatically.
-- **Run `latexmk` from `paper/`**, never from the project root. The `.latexmkrc` in `paper/` sets paths, aux directory, and cleanup — it only takes effect when latexmk is run from that directory. Running from the root dumps aux files in the wrong place and fails to find template classes.
-- After `latexmk` finishes, delete auxiliary files (`.aux`, `.log`, `.bbl`, `.blg`, `.out`, `.toc`, `.fls`, `.fdb_latexmk`, `.synctex.gz`, etc.) from the build directory.
+See `.claude/rules/standalone-latex-compile.md` for compile commands, the subfiles structure, the `cd paper/` rule, aux cleanup, and failure diagnostics.
 
 ## Environment
 

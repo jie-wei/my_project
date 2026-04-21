@@ -28,7 +28,7 @@ Parse `$ARGUMENTS`:
 
 2. **Establish the comparison target.** The review should position literature findings against *our* work. What counts as "our work" depends on the project stage:
    - If the conversation already makes the target clear (e.g., the user just discussed a result, or pointed to a file), use that context directly — no need to ask.
-   - If `paper/main.tex` (or `paper/main.pdf`) exists and hasn't been read this session, read its introduction, main results, and related literature sections as the default anchor.
+   - If `paper/main.tex` (or `paper/main.pdf`) exists and hasn't been read this session, read it as the default anchor. `main.tex` holds only the preamble and `\subfile{...}` chain — the actual prose lives in `paper/sections/*.tex` (especially the introduction and related-literature sections) and `paper/appendices/*.tex`, so read those files, not just `main.tex`.
    - If no draft exists yet, check `docs/core/` and `docs/exploration/` for analysis notes that capture the project's current thinking.
    - If none of the above applies — or if the topic is narrow enough that the general draft isn't the right comparator — ask the user what to compare against before proceeding.
 

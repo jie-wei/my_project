@@ -33,7 +33,7 @@ Parse `$ARGUMENTS`:
 Build on existing work rather than starting from scratch:
 
 1. **Read `summary-*.md` files** in `docs/literature/` — individual paper summaries from `/read-paper` contain model details, key findings, and core assessments. Do NOT read `summary-literature-comparison*.md` — that is a comparison review written through the lens of our paper, and importing its framing would contaminate the synoptic review's neutrality.
-2. **Read `paper/main.tex`** if it has a features/ingredients section — it may already contain an ingredient tree.
+2. **Read the paper body** for any features/ingredients section — it may already contain an ingredient tree. The body lives in `paper/sections/*.tex` and `paper/appendices/*.tex`; `paper/main.tex` only holds the preamble and `\subfile{...}` chain, so reading `main.tex` alone is not enough.
 3. **Check `paper/references.bib`** for papers already in the project.
 4. **Use `WebSearch`** to find recent publications that may be missing from local files.
 5. **Use `WebFetch`** to access working paper repositories and abstracts.

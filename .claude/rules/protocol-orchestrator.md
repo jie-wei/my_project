@@ -35,7 +35,7 @@ Skills are in `.claude/skills/`. Use them for review steps.
 | ------------------------ | --------------- | ------------------------------------------ |
 | `code/src/**/*.py`     | verifier        | `/review-code`                         |
 | `code/scripts/**/*.py` | verifier        | `/review-code`                         |
-| `paper/*.tex`          | verifier        | `/review-manuscript and /review-details` |
+| `paper/**/*.tex`       | verifier        | `/review-manuscript and /review-details` |
 | `docs/**/*.tex`        | verifier        | `/review-summary`                        |
 
 When multiple review perspectives apply, run them in parallel (they check different things).

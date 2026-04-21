@@ -1,7 +1,7 @@
 $pdf_mode = 5;
 $do_cd    = 1;
 $aux_dir  = '.build';
-$success_cmd = 'rm -rf .build && rm -f main.aux main.bbl main.blg main.fdb_latexmk main.fls main.log main.out main.synctex.gz';
+$success_cmd = 'rm -rf .build && rm -f %R.aux %R.bbl %R.blg %R.fdb_latexmk %R.fls %R.log %R.out %R.synctex.gz %R.toc';
 
 use Cwd qw(abs_path);
 use File::Basename;
